@@ -1,10 +1,5 @@
 <template>
-hi | <router-link to="/input">input</router-link> |
-<router-link to="/">button</router-link>
-<hr />
-<div>
-  <router-view />
-</div>
+<router-view />
 </template>
 
 <script>
