@@ -20,8 +20,6 @@ export default {
     const menuVisible = inject < Ref < boolean >> ('xxx')
     const toggleMenu = () => {
       menuVisible.value = !menuVisible.value
-      console.log(menuVisible.value)
-      console.log(1)
     }
     return {
       toggleMenu
@@ -39,6 +37,10 @@ export default {
   justify-content: center;
   align-items: center;
   padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
 
   >.logo {
     max-width: 6em;
