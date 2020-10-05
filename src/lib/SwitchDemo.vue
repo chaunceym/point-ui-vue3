@@ -31,7 +31,7 @@ button {
   height: $h;
   width: $h * 2;
   border: none;
-  background: grey;
+  background: #162229;
   border-radius: $h/2;
   position: relative;
 
@@ -47,7 +47,7 @@ button {
   }
 
   &.checked {
-    background: blue;
+    background: #aa853b;
   }
 
   &.checked>span {
