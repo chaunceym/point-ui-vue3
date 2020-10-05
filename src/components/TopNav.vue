@@ -5,6 +5,7 @@
   <ul class="menu">
     <li>文档</li>
     <li>教程</li>
+    <li><a href="https://github.com/chaunceym">GitHub</a></li>
   </ul>
 </div>
 </template>
@@ -31,7 +32,6 @@ export default {
 <style lang="scss" scoped>
 .topnav {
   color: #fff;
-  position: relative;
   z-index: 10;
   background: #1b1b1d;
   display: flex;
@@ -63,7 +63,8 @@ export default {
     display: flex;
     white-space: nowrap;
     flex-wrap: nowrap;
-
+    align-items: center;
+    justify-content: center;
     >li {
       margin: 0 1em;
     }
