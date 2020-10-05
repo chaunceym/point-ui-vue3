@@ -1,6 +1,6 @@
 <template>
 <button :class="{ checked }">
-  <span @click="toggle"></span>
+  <span @click="toggle"/>
 </button>
 </template>
 

@@ -80,12 +80,12 @@ export default {
   >main {
     flex-grow: 1;
     padding: 16px;
-    background: #1b1b1d;
+    background: blue;
   }
 }
 
 aside {
-  background: lightblue;
+  background: #aa853a;
   width: 150px;
   padding: 16px;
   position: fixed;
