@@ -1,10 +1,10 @@
 <template>
 <div class="topnav">
-  <div class="logo">LOGO</div>
+  <div class="logo">Point UI</div>
   <button class="showMenu" @click="toggleMenu">++</button>
   <ul class="menu">
-    <li>菜单1</li>
-    <li>菜单2</li>
+    <li>文档</li>
+    <li>教程</li>
   </ul>
 </div>
 </template>
@@ -14,25 +14,26 @@ import {
   inject,
   Ref,
   ref
-} from 'vue'
+} from "vue";
 export default {
   setup() {
-    const menuVisible = inject < Ref < boolean >> ('xxx')
+    const menuVisible = inject < Ref < boolean >> ("xxx");
     const toggleMenu = () => {
-      menuVisible.value = !menuVisible.value
-    }
+      menuVisible.value = !menuVisible.value;
+    };
     return {
-      toggleMenu
-    }
-  }
-}
+      toggleMenu,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
 .topnav {
+  color: #fff;
   position: relative;
   z-index: 10;
-  background: pink;
+  background: #1b1b1d;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -78,7 +79,7 @@ export default {
     }
 
     .logo {
-      margin: 0 auto
+      margin: 0 auto;
     }
   }
 }

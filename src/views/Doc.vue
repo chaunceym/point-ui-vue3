@@ -31,23 +31,22 @@ import {
   inject,
   Ref,
   ref
-} from 'vue'
-import TopNav from '../components/TopNav.vue'
+} from "vue";
+import TopNav from "../components/TopNav.vue";
 import {
   router
-} from '../router'
+} from "../router";
 export default {
   components: {
     TopNav,
   },
   setup() {
-    const menuVisible = inject < Ref < boolean >> ('xxx')
+    const menuVisible = inject < Ref < boolean >> ("xxx");
     return {
-      menuVisible
-    }
-  }
-
-}
+      menuVisible,
+    };
+  },
+};
 </script>
 
 <style lang="scss">
@@ -81,7 +80,7 @@ export default {
   >main {
     flex-grow: 1;
     padding: 16px;
-    background: lightgreen;
+    background: #1b1b1d;
   }
 }
 
