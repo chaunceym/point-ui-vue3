@@ -1,5 +1,5 @@
 <template>
-  <button class="po-button" :class="classes">
+  <button :disabled="disabled" class="po-button" :class="classes">
     <slot/>
   </button>
 </template>
@@ -20,7 +20,10 @@
       },
       color: {
         type: String,
-      }
+      },
+      disabled: {
+        type: Boolean,
+      },
     },
     setup(props) {
       const {theme, size, level, color} = props;
@@ -37,9 +40,10 @@
 
 <style lang="scss">
   $h: 32px;
-  $border-color: #d9d9d9;
+  $border-color: #333;
   $color: #333;
   $blue: #40a9ff;
+  $grey: grey;
   $radius: 4px;
   .po-button {
     font-weight: 700;
@@ -56,9 +60,21 @@
     border-radius: $radius;
     box-shadow: 0 1px 0 fadeout(#000000, 0.95);
 
+    &[disabled] {
+      cursor: not-allowed;
+      color: $grey;
+      border-color: $grey;
+
+      &:hover {
+        color: $grey;
+        border-color: $grey;
+      }
+    }
+
     & + & {
       margin-left: 8px;
     }
+
 
     &:hover,
     &:focus {
@@ -82,6 +98,36 @@
       &:hover, &:focus {
         color: lighten($blue, 10%);
       }
+    }
+
+    &.po-theme-loading {
+      &::before {
+        content: '';
+        display: block;
+        height: 14px;
+        width: 14px;
+        border-width: 2px;
+        border-color: $color $color $color transparent;
+        border-style: solid;
+        margin-right: 4px;
+        border-radius: 50%;
+        animation: loadingCircle 1s infinite linear;
+      }
+
+      &:hover,
+      &:focus {
+        color: $color;
+        border-color: $color;
+      }
+    }
+
+    @keyframes loadingCircle {
+      0% {transform: rotate(0deg)}
+      100% {transform: rotate(360deg)}
+    }
+
+    &.po-theme-dashed {
+      border-style: dashed;
     }
 
     &.po-theme-text {
@@ -130,73 +176,155 @@
     }
 
     &.po-level-warning {
-      border: 1px solid orange;
+      border-color: orange;
       color: orange;
+
+      &:active {
+        color: lighten(orange, 5%);
+        border-color: lighten(orange, 5%);
+      }
     }
 
     &.po-level-danger {
-      border: 1px solid red;
+      border-color: red;
       color: red;
+
+      &:active {
+        color: lighten(red, 5%);
+        border-color: lighten(red, 5%);
+      }
     }
 
     &.po-color-red {
+      border-color: red;
       background: red;
       color: #fff;
+
+      &:active {
+        background: lighten(red, 5%);
+        border-color: lighten(red, 5%);
+      }
     }
 
     &.po-color-yellow {
+      border-color: yellow;
       background: yellow;
       color: #fff;
+
+      &:active {
+        background: lighten(yellow, 5%);
+        border-color: lighten(yellow, 5%);
+      }
     }
 
     &.po-color-olive {
       background: olive;
+      border-color: olive;
       color: #fff;
+
+      &:active {
+        background: lighten(olive, 5%);
+        border-color: lighten(olive, 5%);
+      }
     }
 
     &.po-color-green {
+      border-color: green;
       background: green;
       color: #fff;
+
+      &:active {
+        background: lighten(green, 5%);
+        border-color: lighten(green, 5%);
+      }
     }
 
     &.po-color-teal {
+      border-color: teal;
       background: teal;
       color: #fff;
+
+      &:active {
+        background: lighten(teal, 5%);
+        border-color: lighten(teal, 5%);
+      }
     }
 
     &.po-color-blue {
       background: blue;
+      border-color: blue;
       color: #fff;
+
+      &:active {
+        background: lighten(blue, 5%);
+        border-color: lighten(blue, 5%);
+      }
     }
 
     &.po-color-violet {
       background: violet;
+      border-color: violet;
       color: #fff;
+
+      &:active {
+        background: lighten(violet, 5%);
+        border-color: lighten(violet, 5%);
+      }
     }
 
     &.po-color-purple {
       background: purple;
+      border-color: purple;
       color: #fff;
+
+      &:active {
+        background: lighten(purple, 5%);
+        border-color: lighten(purple, 5%);
+      }
     }
 
     &.po-color-pink {
       background: pink;
+      border-color: pink;
       color: #fff;
+
+      &:active {
+        background: lighten(pink, 5%);
+        border-color: lighten(pink, 5%);
+      }
     }
 
     &.po-color-brown {
       background: brown;
+      border-color: brown;
       color: #fff;
+
+      &:active {
+        background: lighten(brown, 5%);
+        border-color: lighten(brown, 5%);
+      }
     }
 
     &.po-color-grey {
       background: grey;
+      border-color: grey;
       color: #fff;
+
+      &:active {
+        background: lighten(grey, 5%);
+        border-color: lighten(grey, 5%);
+      }
     }
 
     &.po-color-black {
       background: black;
+      border-color: black;
       color: #fff;
+
+      &:active {
+        background: lighten(black, 5%);
+        border-color: lighten(black, 5%);
+      }
     }
   }
 </style>
