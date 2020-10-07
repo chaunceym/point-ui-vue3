@@ -1,18 +1,20 @@
 <template>
   <template v-if="visible">
-    <div class="po-dialog-overlay" @click="onClickOverlay"></div>
-    <div class="po-dialog-wrapper">
-      <div class="po-dialog">
-        <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
-        <main>
-          <slot/>
-        </main>
-        <footer>
-          <Button size="mini" @click="ok">{{okText}}</Button>
-          <Button size="mini" @click="cancel">{{cancelText}}</Button>
-        </footer>
+    <teleport to="body">
+      <div class="po-dialog-overlay" @click="onClickOverlay"></div>
+      <div class="po-dialog-wrapper">
+        <div class="po-dialog">
+          <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
+          <main>
+            <slot/>
+          </main>
+          <footer>
+            <Button size="mini" @click="ok">{{okText}}</Button>
+            <Button size="mini" @click="cancel">{{cancelText}}</Button>
+          </footer>
+        </div>
       </div>
-    </div>
+    </teleport>
   </template>
 </template>
 
