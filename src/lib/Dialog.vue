@@ -9,8 +9,8 @@
           <p>第二行字</p>
         </main>
         <footer>
-          <Button size="mini">OK</Button>
-          <Button size="mini">NO</Button>
+          <Button size="mini" @click="ok">OK</Button>
+          <Button size="mini" @click="cancel">NO</Button>
         </footer>
       </div>
     </div>
@@ -29,9 +29,15 @@
         type: Boolean,
         default: false
       },
-      closeOnClickOverlay: {
+      maskClosable: {
         type: Boolean,
         default: true
+      },
+      ok: {
+        type: Function,
+      },
+      cancel: {
+        type: Function,
       }
     },
     setup(props, context) {
@@ -39,11 +45,21 @@
         context.emit('update:visible', !props.visible);
       };
       const onClickOverlay = () => {
-        if (props.closeOnClickOverlay) {
+        if (props.maskClosable) {
           closeDialog();
         }
       };
-      return {closeDialog, onClickOverlay};
+      const ok = () => {
+        if (props.ok && !props.ok()) {
+          closeDialog();
+        }
+      };
+      const cancel = () => {
+        if (props.cancel && !props.cancel()) {
+          closeDialog();
+        }
+      };
+      return {closeDialog, onClickOverlay, ok, cancel};
     }
   };
 </script>

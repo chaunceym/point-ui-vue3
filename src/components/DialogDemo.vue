@@ -1,7 +1,7 @@
 <template>
   <div>
     <Button @click="toggle">toggle</Button>
-    <Dialog v-model:visible="visible"/>
+    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel"/>
   </div>
 </template>
 <script lang="ts">
@@ -16,7 +16,15 @@
       const toggle = () => {
         visible.value = !visible.value;
       };
-      return {visible, toggle};
+      const ok = () => {
+        console.log('ok');
+        return true;
+      };
+      const cancel = () => {
+        console.log('cancel');
+        return false;
+      };
+      return {visible, toggle, ok, cancel};
     }
   };
 
