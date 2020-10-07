@@ -270,4 +270,84 @@ export const obj = {
     'icon-left-arrow-rect',
     'icon-bell',
   ]
-}
+};
+export const dialogParams = {
+  arr: [
+    {
+      name: 'visible',
+      type: 'Boolean',
+      explain: '控制 Dialog 是否可见',
+      default: 'false'
+    },
+    {
+      name: 'title',
+      type: 'String',
+      explain: '组件标题',
+      default: '标题'
+    },
+    {
+      name: 'content',
+      type: 'HTML | String',
+      explain: '组件内容',
+      default: '需用户填写'
+    },
+    {
+      name: 'okText',
+      type: 'String',
+      explain: '确认按钮消息',
+      default: 'ok'
+    },
+    {
+      name: 'ok',
+      type: 'Function',
+      explain: '确认按钮回调',
+      default: '无'
+    },
+    {
+      name: 'cancelText',
+      type: 'String',
+      explain: '取消按钮消息',
+      default: 'cancel'
+    },
+    {
+      name: 'cancel',
+      type: 'Function',
+      explain: '取消按钮回调',
+      default: '无'
+    },
+  ]
+};
+export const buttonParams = {
+  arr: [
+    {
+      name: 'theme',
+      type: 'String',
+      explain: '按钮类型',
+      default: ' '
+    },
+    {
+      name: 'size',
+      type: 'String',
+      explain: '按钮大小',
+      default: ' '
+    },
+    {
+      name: 'level',
+      type: 'String',
+      explain: '按钮级别',
+      default: ' '
+    },
+    {
+      name: 'color',
+      type: 'String',
+      explain: '按钮颜色',
+      default: ' '
+    },
+    {
+      name: 'disabled',
+      type: 'Boolean',
+      explain: '按钮是否可以操作',
+      default: ' '
+    },
+  ]
+};

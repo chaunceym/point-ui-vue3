@@ -68,7 +68,6 @@
 <script lang="ts">
   import Button from '../lib/Button.vue';
   import Icon from '../lib/Icon.vue';
-
   export default {
     components: {
       Button, Icon

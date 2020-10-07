@@ -10,7 +10,7 @@
 <script lang="ts">
   import Icon from '../lib/Icon.vue';
   import {ref} from 'vue';
-  import {obj} from './iconName.js';
+  import {obj} from './demoData.ts';
 
   export default {
     components: {Icon},
@@ -56,6 +56,7 @@
         overflow: hidden; //超出的文本隐藏
         text-overflow: ellipsis; //溢出用省略号显示
         white-space: nowrap; //溢出不换行kkk
+        text-align: center;
       }
     }
 

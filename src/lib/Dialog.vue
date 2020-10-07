@@ -3,7 +3,7 @@
     <teleport to="body">
       <div class="po-dialog-overlay" @click="onClickOverlay"></div>
       <div class="po-dialog-wrapper">
-        <div class="po-dialog .fade-enter">
+        <div class="po-dialog">
           <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
           <main>
             <slot/>
@@ -21,10 +21,11 @@
 
 <script lang="ts">
   import Button from './Button.vue';
+  import Icon from './Icon.vue';
 
   export default {
     components: {
-      Button
+      Button, Icon
     },
     props: {
       visible: {type: Boolean, default: false},
