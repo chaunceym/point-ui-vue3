@@ -7,6 +7,7 @@
           <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
           <main>
             <slot/>
+            <slot name="content"/>
           </main>
           <footer>
             <Button size="mini" @click="ok">{{okText}}</Button>
@@ -44,15 +45,14 @@
         }
       };
       const ok = () => {
-        if (props.ok && !props.ok()) {
-          closeDialog();
-        }
+        if (!props.ok) closeDialog();
+        if (props.ok && !props.ok()) closeDialog();
       };
       const cancel = () => {
-        if (props.cancel && !props.cancel()) {
-          closeDialog();
-        }
+        if (!props.cancel) closeDialog();
+        if (props.cancel && !props.cancel()) closeDialog();
       };
+
       return {closeDialog, onClickOverlay, ok, cancel};
     }
   };
@@ -64,7 +64,7 @@
     background: white;
     border-radius: $radius;
     box-shadow: 0 0 3px fade_out(black, 0.5);
-    min-width: 15em;
+    min-width: 25em;
     max-width: 90%;
 
     &-overlay {
@@ -80,7 +80,7 @@
     &-wrapper {
       position: fixed;
       left: 50%;
-      top: 50%;
+      top: 25%;
       transform: translate(-50%, -50%);
       z-index: 11;
     }
