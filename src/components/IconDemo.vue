@@ -61,9 +61,9 @@
     }
 
     > li:hover {
-      background: blue;
+      background: #1B1B1D;
       border-radius: 4px;
-      color: #fff;
+      color: #CDBE91;
     }
 
     > li:hover .iconfont {

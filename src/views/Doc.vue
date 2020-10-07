@@ -89,22 +89,33 @@
   }
 
   aside {
-    background: #aa853a;
+    color: #CDBE91;
+    background: #1B1B1D;
     width: 150px;
-    padding: 16px;
     position: fixed;
     top: 0;
     left: 0;
-    padding-top: 70px;
+    padding: 70px 8px 8px;
     height: 100%;
 
     > h2 {
-      margin-bottom: 4px;
+      margin: 10px;
     }
 
     > ol {
       > li {
-        padding: 4px 0;
+        padding: 10px 8px;
+        margin: 4px 0;
+        transition: all 250ms;
+        border-top-right-radius: 50%;
+        border-bottom-right-radius: 50%;
+      }
+
+      > li:hover {
+        background: #CDBE91;
+        color: #1B1B1D;
+        transform: translate(15%, 10%);
+        font-weight: 700;
       }
     }
   }
