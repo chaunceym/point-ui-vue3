@@ -1,7 +1,9 @@
 <template>
   <div>
     <Button @click="toggle">toggle</Button>
-    <Dialog v-model:visible="visible" :ok="ok" :cancel="cancel"/>
+    <Dialog title="表单" ok-text="yes" cancel-text="no" v-model:visible="visible" :ok="ok" :cancel="cancel">
+      确定是否取消
+    </Dialog>
   </div>
 </template>
 <script lang="ts">
@@ -18,7 +20,7 @@
       };
       const ok = () => {
         console.log('ok');
-        return true;
+        // return true;
       };
       const cancel = () => {
         console.log('cancel');

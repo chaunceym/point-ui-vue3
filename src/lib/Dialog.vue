@@ -3,14 +3,13 @@
     <div class="po-dialog-overlay" @click="onClickOverlay"></div>
     <div class="po-dialog-wrapper">
       <div class="po-dialog">
-        <header>标题 <span class="po-dialog-close" @click="closeDialog"/></header>
+        <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
         <main>
-          <p>第一行字</p>
-          <p>第二行字</p>
+          <slot/>
         </main>
         <footer>
-          <Button size="mini" @click="ok">OK</Button>
-          <Button size="mini" @click="cancel">NO</Button>
+          <Button size="mini" @click="ok">{{okText}}</Button>
+          <Button size="mini" @click="cancel">{{cancelText}}</Button>
         </footer>
       </div>
     </div>
@@ -25,20 +24,13 @@
       Button
     },
     props: {
-      visible: {
-        type: Boolean,
-        default: false
-      },
-      maskClosable: {
-        type: Boolean,
-        default: true
-      },
-      ok: {
-        type: Function,
-      },
-      cancel: {
-        type: Function,
-      }
+      visible: {type: Boolean, default: false},
+      maskClosable: {type: Boolean, default: true},
+      ok: {type: Function,},
+      cancel: {type: Function,},
+      title: {type: String, default: '标题'},
+      okText: {type: String, default: 'ok'},
+      cancelText: {type: String, default: 'cancel'},
     },
     setup(props, context) {
       const closeDialog = () => {
