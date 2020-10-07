@@ -1,6 +1,6 @@
 <template>
   <h1>参数介绍</h1>
-  <table>
+  <table border="1" cellspacing="0" cellpadding="0">
     <thead>
     <tr>
       <th>参数名</th>
@@ -29,3 +29,14 @@
     }
   };
 </script>
+<style lang="scss" scoped>
+  table {
+    th{
+      padding:10px;
+    }
+    td{
+      padding: 10px;
+    }
+  }
+
+</style>

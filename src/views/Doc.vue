@@ -54,6 +54,8 @@
 </script>
 
 <style lang="scss">
+  @import '../var';
+
   .layout {
     display: flex;
     flex-direction: column;
@@ -82,22 +84,22 @@
     }
 
     > main {
+      overflow: auto;
       flex-grow: 1;
       padding: 16px;
-      background: #FFFFFF;
+      background: $point-white;
     }
   }
 
   aside {
-    color: #CDBE91;
-    background: #1B1B1D;
+    color: $point-color;
+    background: $point-bg;
     width: 150px;
     position: fixed;
     top: 0;
     left: 0;
     padding: 70px 8px 8px;
     height: 100%;
-
     > h2 {
       margin: 10px;
     }
@@ -112,15 +114,12 @@
       }
 
       > li:hover {
-        background: #CDBE91;
-        color: #1B1B1D;
+        background: $point-color;
+        color: $point-bg;
         transform: translate(15%, 10%);
         font-weight: 700;
       }
     }
   }
 
-  main {
-    overflow: auto;
-  }
 </style>

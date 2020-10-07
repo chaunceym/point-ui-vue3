@@ -35,10 +35,12 @@
 </script>
 
 <style lang="scss" scoped>
+  @import '../var';
+
   .topnav {
-    color: #fff;
+    color: $point-white;
     z-index: 10;
-    background: #1b1b1d;
+    background: $point-bg;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -47,6 +49,7 @@
     top: 0;
     left: 0;
     width: 100%;
+    border-bottom: 1px solid $point-color;
 
     > .logo {
       max-width: 6em;

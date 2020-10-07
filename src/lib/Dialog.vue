@@ -28,7 +28,7 @@
           </main>
           <footer>
             <Button size="tiny" @click="ok">{{okText}}</Button>
-            <Button size="tiny"  @click="cancel">{{cancelText}}</Button>
+            <Button size="tiny" @click="cancel">{{cancelText}}</Button>
           </footer>
         </div>
       </div>
