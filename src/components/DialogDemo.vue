@@ -45,6 +45,23 @@
     <Button @click="toggleForm">toggleForm</Button>
     <Dialog v-model:visible="visibleForm" :form="true"></Dialog>
   </div>
+  <div>
+    <h1>dialog信息</h1>
+    <Button @click="toggleInfo">toggleInfo</Button>
+    <Dialog v-model:visible="visibleInfo" message="success">
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+      提交成功
+
+    </Dialog>
+  </div>
   <params-table :params-introduce="paramsList"/>
 </template>
 <script lang="ts">
@@ -63,22 +80,14 @@
       const visibleNormal = ref(false);
       const visibleBig = ref(false);
       const visibleForm = ref(false);
+      const visibleInfo = ref(false);
       const paramsList = ref(dialogParams.arr);
-      const toggle = () => {
-        visible.value = !visible.value;
-      };
-      const toggleSmall = () => {
-        visibleSmall.value = !visibleSmall.value;
-      };
-      const toggleNormal = () => {
-        visibleNormal.value = !visibleNormal.value;
-      };
-      const toggleBig = () => {
-        visibleBig.value = !visibleBig.value;
-      };
-      const toggleForm = () => {
-        visibleForm.value = !visibleForm.value;
-      };
+      const toggle = () => { visible.value = !visible.value; };
+      const toggleSmall = () => { visibleSmall.value = !visibleSmall.value; };
+      const toggleNormal = () => { visibleNormal.value = !visibleNormal.value; };
+      const toggleBig = () => { visibleBig.value = !visibleBig.value; };
+      const toggleForm = () => { visibleForm.value = !visibleForm.value; };
+      const toggleInfo = () => { visibleInfo.value = !visibleInfo.value; };
       const ok = () => {
         console.log('ok');
       };
@@ -105,6 +114,7 @@
         visible, visibleSmall, toggleSmall, toggle,
         visibleNormal, toggleNormal,
         visibleForm, toggleForm,
+        visibleInfo, toggleInfo,
         visibleBig, toggleBig, ok, cancel, showDialog, paramsList
       };
     }

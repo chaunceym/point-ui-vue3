@@ -3,11 +3,19 @@
     <teleport to="body">
       <div class="po-dialog-overlay" @click="onClickOverlay"></div>
       <div class="po-dialog-wrapper">
-        <div class="po-dialog" :class="{[`po-size-${size}`]:size}">
-          <header>{{(form && '表单') || title}}<span class="po-dialog-close" @click="closeDialog"/></header>
+        <div class="po-dialog" :class="classes">
+          <header>
+            <span class="title">{{(form && '表单') || title}}</span>
+            <span class="po-dialog-close" @click="closeDialog"/>
+          </header>
           <main>
-            <slot/>
-            <slot name="content"/>
+            <div v-if="message">
+              <Icon class="message-icon" :type="messageType"/>
+            </div>
+            <div class="content-slot">
+              <slot/>
+              <slot name="content"/>
+            </div>
             <div class="from" v-if="form">
               <label>
                 用户名: <input type="text">
@@ -31,6 +39,13 @@
 <script lang="ts">
   import Button from './Button.vue';
   import Icon from './Icon.vue';
+  import {computed, ref} from 'vue';
+
+  const hash = {
+    info: 'icon-info-circle-fill',
+    success: 'icon-check-circle-fill',
+    error: 'icon-times-circle-fill'
+  };
 
   export default {
     components: {
@@ -46,9 +61,16 @@
       cancelText: {type: String, default: 'cancel'},
       size: {type: String},
       form: {type: Boolean, default: false},
-
+      message: {type: String}
     },
     setup(props, context) {
+      const {size, message} = props;
+      const classes = computed(() => {
+        return {
+          [`po-size-${size}`]: size, [`po-message-${message}`]: message
+        };
+      });
+      const messageType = ref(hash[message]);
       const closeDialog = () => {
         context.emit('update:visible', !props.visible);
       };
@@ -66,7 +88,7 @@
         if (props.cancel && !props.cancel()) closeDialog();
       };
 
-      return {closeDialog, onClickOverlay, ok, cancel};
+      return {closeDialog, onClickOverlay, ok, cancel, classes, messageType};
     }
   };
 </script>
@@ -132,7 +154,71 @@
       text-align: right;
     }
 
+    .message-icon {
+      font-size: 28px;
+      padding: 0 20px 15px 20px;
+      display: inline-block;
+      height: 100%;
+    }
+
+    &.po-message-info {
+      .title { visibility: hidden; }
+
+      header { padding: 8px 12px; border-color: transparent; }
+
+      .message-icon {
+        color: blue;
+      }
+
+      footer { border-color: transparent; }
+    }
+
+    &.po-message-warning {
+      .title { visibility: hidden; }
+
+      header { padding: 8px 12px; border-color: transparent; }
+
+      .message-icon {
+        color: orange;
+      }
+
+      footer { border-color: transparent; }
+    }
+
+    &.po-message-error {
+      .title { visibility: hidden; }
+
+      header { padding: 8px 12px; border-color: transparent; }
+
+      .message-icon {
+        color: green;
+      }
+
+      footer { border-color: transparent; }
+    }
+
+    &.po-message-success {
+      .title { visibility: hidden; }
+
+      .message-icon {
+        color: red;
+      }
+      .content-slot{
+        padding: 4px 20px 0 0;
+      }
+
+      header { padding: 8px 12px; border-color: transparent; }
+
+      footer { border-color: transparent; }
+
+      main {
+        display: flex;
+      }
+
+    }
+
     &-close {
+
       position: relative;
       display: inline-block;
       width: 16px;
@@ -144,7 +230,7 @@
         content: '';
         position: absolute;
         height: 1px;
-        background: black;
+        background: #ffffff;
         width: 100%;
         top: 50%;
         left: 50%;
