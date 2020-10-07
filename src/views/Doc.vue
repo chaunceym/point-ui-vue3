@@ -100,6 +100,7 @@
     left: 0;
     padding: 70px 8px 8px;
     height: 100%;
+
     > h2 {
       margin: 10px;
     }
@@ -109,8 +110,7 @@
         padding: 10px 8px;
         margin: 4px 0;
         transition: all 250ms;
-        border-top-right-radius: 50%;
-        border-bottom-right-radius: 50%;
+        border-radius: 4px 50% 50% 4px;
       }
 
       > li:hover {
