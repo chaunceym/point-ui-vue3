@@ -1,18 +1,20 @@
 <template>
-  <div class="po-dialog-overlay"></div>
-  <div class="po-dialog-wrapper">
-    <div class="po-dialog">
-      <header>标题 <span class="po-dialog-close"></span></header>
-      <main>
-        <p>第一行字</p>
-        <p>第二行字</p>
-      </main>
-      <footer>
-        <Button size="mini">OK</Button>
-        <Button size="mini">NO</Button>
-      </footer>
+  <template v-if="visible">
+    <div class="po-dialog-overlay"></div>
+    <div class="po-dialog-wrapper">
+      <div class="po-dialog">
+        <header>标题 <span class="po-dialog-close"></span></header>
+        <main>
+          <p>第一行字</p>
+          <p>第二行字</p>
+        </main>
+        <footer>
+          <Button size="mini">OK</Button>
+          <Button size="mini">NO</Button>
+        </footer>
+      </div>
     </div>
-  </div>
+  </template>
 </template>
 
 <script lang="ts">
@@ -21,6 +23,12 @@
   export default {
     components: {
       Button
+    },
+    props: {
+      visible: {
+        type: Boolean,
+        default: false
+      }
     }
   };
 </script>
