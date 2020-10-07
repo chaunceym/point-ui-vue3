@@ -1,9 +1,9 @@
 <template>
   <template v-if="visible">
-    <div class="po-dialog-overlay"></div>
+    <div class="po-dialog-overlay" @click="onClickOverlay"></div>
     <div class="po-dialog-wrapper">
       <div class="po-dialog">
-        <header>标题 <span class="po-dialog-close"></span></header>
+        <header>标题 <span class="po-dialog-close" @click="closeDialog"/></header>
         <main>
           <p>第一行字</p>
           <p>第二行字</p>
@@ -28,7 +28,22 @@
       visible: {
         type: Boolean,
         default: false
+      },
+      closeOnClickOverlay: {
+        type: Boolean,
+        default: true
       }
+    },
+    setup(props, context) {
+      const closeDialog = () => {
+        context.emit('update:visible', !props.visible);
+      };
+      const onClickOverlay = () => {
+        if (props.closeOnClickOverlay) {
+          closeDialog();
+        }
+      };
+      return {closeDialog, onClickOverlay};
     }
   };
 </script>
