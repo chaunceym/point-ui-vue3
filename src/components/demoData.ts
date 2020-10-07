@@ -286,6 +286,12 @@ export const dialogParams = {
       default: '标题'
     },
     {
+      name: 'size',
+      type: 'String',
+      explain: '组件大小',
+      default: '无'
+    },
+    {
       name: 'content',
       type: 'HTML | String',
       explain: '组件内容',

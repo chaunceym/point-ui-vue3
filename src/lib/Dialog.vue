@@ -3,15 +3,15 @@
     <teleport to="body">
       <div class="po-dialog-overlay" @click="onClickOverlay"></div>
       <div class="po-dialog-wrapper">
-        <div class="po-dialog">
+        <div class="po-dialog" :class="{[`po-size-${size}`]:size}">
           <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
           <main>
             <slot/>
             <slot name="content"/>
           </main>
           <footer>
-            <Button size="mini" @click="ok">{{okText}}</Button>
-            <Button size="mini" @click="cancel">{{cancelText}}</Button>
+            <Button size="tiny" @click="ok">{{okText}}</Button>
+            <Button size="tiny" color="red" @click="cancel">{{cancelText}}</Button>
           </footer>
         </div>
       </div>
@@ -35,6 +35,7 @@
       title: {type: String, default: '标题'},
       okText: {type: String, default: 'ok'},
       cancelText: {type: String, default: 'cancel'},
+      size: {type: String}
     },
     setup(props, context) {
       const closeDialog = () => {
@@ -62,11 +63,24 @@
   $radius: 4px;
   $border-color: #d9d9d9;
   .po-dialog {
-    background: white;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
     border-radius: $radius;
     box-shadow: 0 0 3px fade_out(black, 0.5);
-    min-width: 25em;
+    min-width: 35em;
     max-width: 90%;
+    max-height: 22em;
+    display: flex;
+    flex-direction: column;
+
+    &.po-size-small {
+      min-width: 25em;
+    }
+
+    &.po-size-big {
+      min-width: 55em;
+    }
 
     &-overlay {
       position: fixed;
@@ -74,14 +88,14 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: fade_out(black, 0.5);
+      background: fade_out(black, 0.2);
       z-index: 10;
     }
 
     &-wrapper {
       position: fixed;
       left: 50%;
-      top: 25%;
+      top: 35%;
       transform: translate(-50%, -50%);
       z-index: 11;
     }
@@ -96,7 +110,9 @@
     }
 
     > main {
+      flex-grow: 1;
       padding: 12px 16px;
+      overflow: auto;
     }
 
     > footer {
