@@ -4,10 +4,19 @@
       <div class="po-dialog-overlay" @click="onClickOverlay"></div>
       <div class="po-dialog-wrapper">
         <div class="po-dialog" :class="{[`po-size-${size}`]:size}">
-          <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
+          <header>{{(form && '表单') || title}}<span class="po-dialog-close" @click="closeDialog"/></header>
           <main>
             <slot/>
             <slot name="content"/>
+            <div class="from" v-if="form">
+              <label>
+                用户名: <input type="text">
+              </label>
+              <br>
+              <label>
+                密&nbsp;&nbsp;&nbsp;&nbsp;码: <input type="password">
+              </label>
+            </div>
           </main>
           <footer>
             <Button size="tiny" @click="ok">{{okText}}</Button>
@@ -35,7 +44,9 @@
       title: {type: String, default: '标题'},
       okText: {type: String, default: 'ok'},
       cancelText: {type: String, default: 'cancel'},
-      size: {type: String}
+      size: {type: String},
+      form: {type: Boolean, default: false},
+
     },
     setup(props, context) {
       const closeDialog = () => {

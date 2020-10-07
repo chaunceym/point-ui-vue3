@@ -40,6 +40,11 @@
       <h1>Big</h1>
     </Dialog>
   </div>
+  <div>
+    <h1>表单</h1>
+    <Button @click="toggleForm">toggleForm</Button>
+    <Dialog v-model:visible="visibleForm" :form="true"></Dialog>
+  </div>
   <params-table :params-introduce="paramsList"/>
 </template>
 <script lang="ts">
@@ -57,6 +62,7 @@
       const visibleSmall = ref(false);
       const visibleNormal = ref(false);
       const visibleBig = ref(false);
+      const visibleForm = ref(false);
       const paramsList = ref(dialogParams.arr);
       const toggle = () => {
         visible.value = !visible.value;
@@ -69,6 +75,9 @@
       };
       const toggleBig = () => {
         visibleBig.value = !visibleBig.value;
+      };
+      const toggleForm = () => {
+        visibleForm.value = !visibleForm.value;
       };
       const ok = () => {
         console.log('ok');
@@ -95,6 +104,7 @@
       return {
         visible, visibleSmall, toggleSmall, toggle,
         visibleNormal, toggleNormal,
+        visibleForm, toggleForm,
         visibleBig, toggleBig, ok, cancel, showDialog, paramsList
       };
     }
