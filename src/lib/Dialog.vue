@@ -3,7 +3,7 @@
     <teleport to="body">
       <div class="po-dialog-overlay" @click="onClickOverlay"></div>
       <div class="po-dialog-wrapper">
-        <div class="po-dialog">
+        <div class="po-dialog .fade-enter">
           <header>{{title}}<span class="po-dialog-close" @click="closeDialog"/></header>
           <main>
             <slot/>
