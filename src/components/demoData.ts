@@ -292,6 +292,12 @@ export const dialogParams = {
       default: '无'
     },
     {
+      name: 'message',
+      type: 'String',
+      explain: '组件表示信息',
+      default: '无'
+    },
+    {
       name: 'content',
       type: 'HTML | String',
       explain: '组件内容',

@@ -28,7 +28,7 @@
           </main>
           <footer>
             <Button size="tiny" @click="ok">{{okText}}</Button>
-            <Button size="tiny" color="red" @click="cancel">{{cancelText}}</Button>
+            <Button size="tiny"  @click="cancel">{{cancelText}}</Button>
           </footer>
         </div>
       </div>
@@ -43,6 +43,7 @@
 
   const hash = {
     info: 'icon-info-circle-fill',
+    warning: 'icon-info-circle-fill',
     success: 'icon-check-circle-fill',
     error: 'icon-times-circle-fill'
   };
@@ -164,57 +165,57 @@
     &.po-message-info {
       .title { visibility: hidden; }
 
+      .message-icon { color: blue; }
+
+      .content-slot { padding: 4px 20px 0 0; }
+
       header { padding: 8px 12px; border-color: transparent; }
 
-      .message-icon {
-        color: blue;
-      }
-
       footer { border-color: transparent; }
+
+      main { display: flex; }
     }
 
     &.po-message-warning {
       .title { visibility: hidden; }
 
+      .message-icon { color: orange; }
+
+      .content-slot { padding: 4px 20px 0 0; }
+
       header { padding: 8px 12px; border-color: transparent; }
 
-      .message-icon {
-        color: orange;
-      }
-
       footer { border-color: transparent; }
+
+      main { display: flex; }
     }
 
     &.po-message-error {
       .title { visibility: hidden; }
 
+      .message-icon { color: red; }
+
+      .content-slot { padding: 4px 20px 0 0; }
+
       header { padding: 8px 12px; border-color: transparent; }
 
-      .message-icon {
-        color: green;
-      }
-
       footer { border-color: transparent; }
+
+      main { display: flex; }
     }
 
     &.po-message-success {
       .title { visibility: hidden; }
 
-      .message-icon {
-        color: red;
-      }
-      .content-slot{
-        padding: 4px 20px 0 0;
-      }
+      .message-icon { color: green; }
+
+      .content-slot { padding: 4px 20px 0 0; }
 
       header { padding: 8px 12px; border-color: transparent; }
 
       footer { border-color: transparent; }
 
-      main {
-        display: flex;
-      }
-
+      main { display: flex; }
     }
 
     &-close {

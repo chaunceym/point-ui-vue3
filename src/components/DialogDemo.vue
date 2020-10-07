@@ -48,18 +48,20 @@
   <div>
     <h1>dialog信息</h1>
     <Button @click="toggleInfo">toggleInfo</Button>
-    <Dialog v-model:visible="visibleInfo" message="success">
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-      提交成功
-
+    <Dialog v-model:visible="visibleInfo" message="info">
+      提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
+    </Dialog>
+    <Button @click="toggleSuccess">toggleSuccess</Button>
+    <Dialog v-model:visible="visibleSuccess" message="success">
+      提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
+    </Dialog>
+    <Button @click="toggleWarning">Warning</Button>
+    <Dialog v-model:visible="visibleWarning" message="warning">
+      提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
+    </Dialog>
+    <Button @click="toggleError">toggleError</Button>
+    <Dialog v-model:visible="visibleError" message="error">
+      提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
     </Dialog>
   </div>
   <params-table :params-introduce="paramsList"/>
@@ -81,12 +83,18 @@
       const visibleBig = ref(false);
       const visibleForm = ref(false);
       const visibleInfo = ref(false);
+      const visibleSuccess = ref(false);
+      const visibleWarning = ref(false);
+      const visibleError = ref(false);
       const paramsList = ref(dialogParams.arr);
       const toggle = () => { visible.value = !visible.value; };
       const toggleSmall = () => { visibleSmall.value = !visibleSmall.value; };
       const toggleNormal = () => { visibleNormal.value = !visibleNormal.value; };
       const toggleBig = () => { visibleBig.value = !visibleBig.value; };
       const toggleForm = () => { visibleForm.value = !visibleForm.value; };
+      const toggleSuccess = () => { visibleSuccess.value = !visibleSuccess.value; };
+      const toggleWarning = () => { visibleWarning.value = !visibleWarning.value; };
+      const toggleError = () => { visibleError.value = !visibleError.value; };
       const toggleInfo = () => { visibleInfo.value = !visibleInfo.value; };
       const ok = () => {
         console.log('ok');
@@ -115,6 +123,9 @@
         visibleNormal, toggleNormal,
         visibleForm, toggleForm,
         visibleInfo, toggleInfo,
+        visibleSuccess, toggleSuccess,
+        visibleWarning, toggleWarning,
+        visibleError, toggleError,
         visibleBig, toggleBig, ok, cancel, showDialog, paramsList
       };
     }
