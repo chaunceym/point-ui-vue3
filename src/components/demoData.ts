@@ -323,31 +323,31 @@ export const buttonParams = {
       name: 'theme',
       type: 'String',
       explain: '按钮类型',
-      default: ' '
+      default: '无'
     },
     {
       name: 'size',
       type: 'String',
       explain: '按钮大小',
-      default: ' '
+      default: '无'
     },
     {
       name: 'level',
       type: 'String',
       explain: '按钮级别',
-      default: ' '
+      default: '无'
     },
     {
       name: 'color',
       type: 'String',
       explain: '按钮颜色',
-      default: ' '
+      default: '无'
     },
     {
       name: 'disabled',
       type: 'Boolean',
       explain: '按钮是否可以操作',
-      default: ' '
+      default: '无'
     },
   ]
 };

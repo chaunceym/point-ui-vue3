@@ -30,7 +30,6 @@
       };
       const ok = () => {
         console.log('ok');
-        // return true;
       };
       const cancel = () => {
         console.log('cancel');

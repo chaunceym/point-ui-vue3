@@ -63,14 +63,23 @@
     <div>
     </div>
   </div>
+  <params-table :params-introduce="paramsList"/>
 </template>
 
 <script lang="ts">
   import Button from '../lib/Button.vue';
   import Icon from '../lib/Icon.vue';
+  import {buttonParams} from './demoData';
+  import {ref} from 'vue';
+  import ParamsTable from './ParamsTable.vue';
+
   export default {
     components: {
-      Button, Icon
+      Button, Icon, ParamsTable
     },
+    setup() {
+      const paramsList = ref(buttonParams.arr);
+      return {paramsList};
+    }
   };
 </script>
