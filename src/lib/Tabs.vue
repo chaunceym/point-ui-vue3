@@ -1,7 +1,7 @@
 <template>
 <div class="po-tabs">
   <div class="po-tabs-nav">
-    <div class="po-tabs-nav-item" v-for="(t, index) in titles" :key="index">
+    <div class="po-tabs-nav-item" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index">
       {{ t }}
     </div>
   </div>
@@ -16,6 +16,11 @@ import Tab from "./Tab.vue";
 export default {
   components: {
     Tab,
+  },
+  props: {
+    selected: {
+      type: String,
+    },
   },
   setup(props, context) {
     const defaults = context.slots.default();
