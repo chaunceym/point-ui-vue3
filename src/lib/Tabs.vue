@@ -21,7 +21,8 @@ import {
   onMounted,
   onUpdated,
   ref,
-  watchEffect
+  watchEffect,
+  watch
 } from "vue";
 import Tab from "./Tab.vue";
 export default {
@@ -37,23 +38,23 @@ export default {
     const selectedItem = ref < HTMLDivElement > (null);
     const indicator = ref < HTMLDivElement > (null);
     const container = ref < HTMLDivElement > (null);
-    const fixed = () => {
-      const {
-        width
-      } = selectedItem.value.getBoundingClientRect();
-      indicator.value.style.width = width + "px";
-      const {
-        left: left1
-      } = container.value.getBoundingClientRect();
-      const {
-        left: left2
-      } = selectedItem.value.getBoundingClientRect();
-      indicator.value.style.left = left2 - left1 + "px";
-    };
-    onMounted(fixed);
-    onUpdated(fixed);
-    // watchEffect(() => {
-    // });
+    onMounted(() => {
+      watchEffect(() => {
+        const {
+          width
+        } = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.width = width + "px";
+        const {
+          left: left1
+        } = container.value.getBoundingClientRect();
+        const {
+          left: left2
+        } = selectedItem.value.getBoundingClientRect();
+        indicator.value.style.left = left2 - left1 + "px";
+      });
+    });
+
+    // watchEffect(fixed);
     const defaults = context.slots.default();
     const select = (title) => {
       context.emit("update:selected", title);

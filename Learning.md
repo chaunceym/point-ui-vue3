@@ -23,3 +23,10 @@
 - 获取虚拟节点
 - 返回值是一个数组, 数组元素为节点元素
 - 所以组件都会变成一个对象
+
+## watchEffect, onMounted, onUpdated
+
+- onMounted: 挂载完成后执行
+- onUpdated: 更新后
+- watchEffect: 数据更新后, 挂载前也会执行
+- 在 onMounted 内执行 watchEffect, 实现 onMounted 后拿到数据
