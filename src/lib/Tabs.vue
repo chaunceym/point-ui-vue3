@@ -1,9 +1,14 @@
 <template>
 <div class="po-tabs">
-  <div class="po-tabs-nav">
-    <div @click="select(t)" class="po-tabs-nav-item" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index">
+  <div class="po-tabs-nav" ref="container">
+    <div @click="select(t)" :ref="
+          (el) => {
+            if (el) divs[index] = el;
+          }
+        " class="po-tabs-nav-item" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index">
       {{ t }}
     </div>
+    <div class="po-tabs-nav-indicator" ref="indicator"></div>
   </div>
   <div class="po-tabs-content">
     <component class="po-tabs-content-item" :class="{ selected: c.props.title === selected }" v-for="(c, index) in defaults" :key="index" :is="c" />
@@ -13,7 +18,10 @@
 
 <script lang="ts">
 import {
-  computed
+  computed,
+  onMounted,
+  onUpdated,
+  ref
 } from "vue";
 import Tab from "./Tab.vue";
 export default {
@@ -26,6 +34,44 @@ export default {
     },
   },
   setup(props, context) {
+    const divs = ref < HTMLDivElement[] > ([]);
+    const indicator = ref < HTMLDivElement > (null);
+    const container = ref < HTMLDivElement > (null);
+    onMounted(() => {
+      const result = divs.value.filter((div) => {
+        return div.classList.contains("selected");
+      })[0];
+      const {
+        width
+      } = result.getBoundingClientRect();
+      indicator.value.style.width = width + "px";
+      const {
+        left: left1
+      } = container.value.getBoundingClientRect();
+      const {
+        left: left2
+      } = result.getBoundingClientRect();
+      console.log(left1, left2);
+      indicator.value.style.left = left2 - left1 + "px";
+    });
+    onUpdated(() => {
+      const result = divs.value.filter((div) => {
+        return div.classList.contains("selected");
+      })[0];
+      const {
+        width
+      } = result.getBoundingClientRect();
+      indicator.value.style.width = width + "px";
+      const {
+        left: left1
+      } = container.value.getBoundingClientRect();
+      const {
+        left: left2
+      } = result.getBoundingClientRect();
+      console.log(left1, left2);
+      const left = left2 - left1;
+      indicator.value.style.left = left + "px";
+    });
     const defaults = context.slots.default();
     const select = (title) => {
       context.emit("update:selected", title);
@@ -40,6 +86,9 @@ export default {
       defaults,
       titles,
       select,
+      divs,
+      indicator,
+      container,
     };
   },
 };
@@ -54,11 +103,11 @@ $border-color: #d9d9d9;
   &-nav {
     display: flex;
     color: $color;
+    position: relative;
     border-bottom: 1px solid $border-color;
 
     &-item {
-      padding: 8px 0;
-      margin: 0 16px;
+      padding: 8px 8px;
       cursor: pointer;
 
       &:first-child {
@@ -68,6 +117,16 @@ $border-color: #d9d9d9;
       &.selected {
         color: $blue;
       }
+    }
+
+    &-indicator {
+      position: absolute;
+      height: 3px;
+      background: $blue;
+      left: 0;
+      bottom: -1px;
+      width: 50px;
+      transition: all 250ms;
     }
   }
 
