@@ -37,9 +37,7 @@ export default {
     const selectedItem = ref < HTMLDivElement > (null);
     const indicator = ref < HTMLDivElement > (null);
     const container = ref < HTMLDivElement > (null);
-
-    watchEffect(() => {
-      console.log(selectedItem);
+    const fixed = () => {
       const {
         width
       } = selectedItem.value.getBoundingClientRect();
@@ -51,7 +49,11 @@ export default {
         left: left2
       } = selectedItem.value.getBoundingClientRect();
       indicator.value.style.left = left2 - left1 + "px";
-    });
+    };
+    onMounted(fixed);
+    onUpdated(fixed);
+    // watchEffect(() => {
+    // });
     const defaults = context.slots.default();
     const select = (title) => {
       context.emit("update:selected", title);
