@@ -1,17 +1,20 @@
 <template>
 <div class="po-tabs">
   <div class="po-tabs-nav">
-    <div class="po-tabs-nav-item" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index">
+    <div @click="select(t)" class="po-tabs-nav-item" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index">
       {{ t }}
     </div>
   </div>
   <div class="po-tabs-content">
-    <component class="po-tabs-content-item" v-for="(c, index) in defaults" :is="c" :key="index" />
+    <component class="po-tabs-content-item" :class="{ selected: c.props.title === selected }" v-for="(c, index) in defaults" :key="index" :is="c" />
   </div>
 </div>
 </template>
 
 <script lang="ts">
+import {
+  computed
+} from "vue";
 import Tab from "./Tab.vue";
 export default {
   components: {
@@ -24,7 +27,9 @@ export default {
   },
   setup(props, context) {
     const defaults = context.slots.default();
-    console.log(defaults);
+    const select = (title) => {
+      context.emit("update:selected", title);
+    };
     defaults.forEach((item) => {
       if (item.type !== Tab) {
         throw new Error("tabs 里必须是 tab 组件");
@@ -34,6 +39,7 @@ export default {
     return {
       defaults,
       titles,
+      select,
     };
   },
 };
@@ -67,6 +73,14 @@ $border-color: #d9d9d9;
 
   &-content {
     padding: 8px 0;
+
+    &-item {
+      display: none;
+
+      &.selected {
+        display: block;
+      }
+    }
   }
 }
 </style>
