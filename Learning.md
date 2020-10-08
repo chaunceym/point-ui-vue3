@@ -16,4 +16,10 @@
 ## Dialog 必须移到 body 下面
 
 - 防止 css 上下文层级叠加问题
-- 使用 Teleport 组件(Vue3新出)
+- 使用 Teleport 组件(Vue3 新出)
+
+## context.slots.default()
+
+- 获取虚拟节点
+- 返回值是一个数组, 数组元素为节点元素
+- 所以组件都会变成一个对象
