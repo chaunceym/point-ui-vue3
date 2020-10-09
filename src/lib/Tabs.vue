@@ -3,7 +3,7 @@
   <div class="po-tabs-nav" ref="container">
     <div @click="select(t)" :ref="
           (el) => {
-            if (t === selected) selectedItem = el;
+            if (t === selected) selectedItem = el
           }
         " class="po-tabs-nav-item" :class="{ selected: t === selected }" v-for="(t, index) in titles" :key="index">
       {{ t }}
@@ -23,8 +23,8 @@ import {
   ref,
   watchEffect,
   watch
-} from "vue";
-import Tab from "./Tab.vue";
+} from 'vue'
+import Tab from './Tab.vue'
 export default {
   components: {
     Tab,
@@ -35,36 +35,36 @@ export default {
     },
   },
   setup(props, context) {
-    const selectedItem = ref < HTMLDivElement > (null);
-    const indicator = ref < HTMLDivElement > (null);
-    const container = ref < HTMLDivElement > (null);
+    const selectedItem = ref < HTMLDivElement > (null)
+    const indicator = ref < HTMLDivElement > (null)
+    const container = ref < HTMLDivElement > (null)
     onMounted(() => {
       watchEffect(() => {
         const {
           width
-        } = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.width = width + "px";
+        } = selectedItem.value.getBoundingClientRect()
+        indicator.value.style.width = width + 'px'
         const {
           left: left1
-        } = container.value.getBoundingClientRect();
+        } = container.value.getBoundingClientRect()
         const {
           left: left2
-        } = selectedItem.value.getBoundingClientRect();
-        indicator.value.style.left = left2 - left1 + "px";
-      });
-    });
+        } = selectedItem.value.getBoundingClientRect()
+        indicator.value.style.left = left2 - left1 + 'px'
+      })
+    })
 
     // watchEffect(fixed);
-    const defaults = context.slots.default();
+    const defaults = context.slots.default()
     const select = (title) => {
-      context.emit("update:selected", title);
-    };
+      context.emit('update:selected', title)
+    }
     defaults.forEach((item) => {
       if (item.type !== Tab) {
-        throw new Error("tabs 里必须是 tab 组件");
+        throw new Error('tabs 里必须是 tab 组件')
       }
-    });
-    const titles = defaults.map((item) => item.props.title);
+    })
+    const titles = defaults.map((item) => item.props.title)
     return {
       defaults,
       titles,
@@ -72,9 +72,9 @@ export default {
       selectedItem,
       indicator,
       container,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss">
