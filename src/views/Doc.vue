@@ -9,10 +9,10 @@
           <router-link to="/doc/introduce">项目介绍</router-link>
         </li>
         <li>
-          <router-link to="/doc/install">快速上手</router-link>
+          <router-link to="/doc/install">安装</router-link>
         </li>
         <li>
-          <router-link to="/doc/get-started">项目实战</router-link>
+          <router-link to="/doc/get-started">快速上手</router-link>
         </li>
       </ol>
       <h3>组件列表</h3>
@@ -46,27 +46,27 @@ import {
   inject,
   Ref,
   ref
-} from "vue";
-import TopNav from "../components/TopNav.vue";
+} from 'vue'
+import TopNav from '../components/TopNav.vue'
 import {
   router
-} from "../router";
+} from '../router'
 
 export default {
   components: {
     TopNav,
   },
   setup() {
-    const menuVisible = inject < Ref < boolean >> ("xxx");
+    const menuVisible = inject < Ref < boolean >> ('xxx')
     return {
       menuVisible,
-    };
+    }
   },
-};
+}
 </script>
 
 <style lang="scss">
-@import "../var";
+@import '../var';
 
 .layout {
   display: flex;
