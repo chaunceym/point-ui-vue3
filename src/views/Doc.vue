@@ -3,7 +3,7 @@
   <TopNav class="nav" />
   <div class="content">
     <aside v-if="menuVisible">
-      <h2>开始使用</h2>
+      <h3>开始使用</h3>
       <ol>
         <li>
           <router-link to="/doc/introduce">介绍</router-link>
@@ -15,7 +15,7 @@
           <router-link to="/doc/get-started">开始</router-link>
         </li>
       </ol>
-      <h2>组件列表</h2>
+      <h3>组件列表</h3>
       <ol>
         <li>
           <router-link to="/doc/switch">Swich 组件</router-link>
@@ -113,24 +113,27 @@ aside {
   padding: 70px 8px 8px;
   height: 100%;
 
-  >h2 {
-    margin: 10px;
+  >h3 {
+    margin: 10px 8px;
   }
 
   >ol {
     >li {
-      padding: 10px 8px;
-      margin: 4px 0;
-      transition: all 250ms;
-      border-radius: 4px 50% 50% 4px;
+      a {
+        display: inline-flex;
+        width: 100%;
+        height: 100%;
+        padding: 4px 8px;
+        transition: all 250ms;
+      }
     }
+  }
 
-    >li:hover {
-      background: $point-color;
-      color: $point-bg;
-      transform: translate(15%, 10%);
-      font-weight: 700;
-    }
+  .router-link-active {
+    color: $point-bg;
+    background: $point-color;
+    border-radius: 4px;
+    font-weight: 700;
   }
 }
 </style>
