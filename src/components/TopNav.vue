@@ -1,97 +1,99 @@
 <template>
-  <div class="topnav">
-    <div class="logo">Point UI</div>
-    <Icon class="showMenu" @click="toggleMenu" type="icon-menu"/>
-    <ul class="menu">
-      <li>文档</li>
-      <li>教程</li>
-      <li><a href="https://github.com/chaunceym">GitHub</a></li>
-    </ul>
-  </div>
+<div class="topnav">
+  <div class="logo">Point UI</div>
+  <Icon class="showMenu" @click="toggleMenu" type="icon-menu" />
+  <ul class="menu">
+    <li>
+      <router-link to="/doc/switch"> 文档 </router-link>
+    </li>
+    <li><a href="https://chaunceym.gitee.io/pointui/">回到旧版</a></li>
+    <li><a href="https://github.com/chaunceym">GitHub</a></li>
+  </ul>
+</div>
 </template>
 
 <script lang="ts">
-  import {
-    inject,
-    Ref,
-    ref
-  } from 'vue';
-  import Icon from '../lib/Icon.vue';
+import {
+  inject,
+  Ref,
+  ref
+} from "vue";
+import Icon from "../lib/Icon.vue";
 
-  export default {
-    components: {
-      Icon
-    },
-    setup() {
-      const menuVisible = inject<Ref<boolean>>('xxx');
-      const toggleMenu = () => {
-        menuVisible.value = !menuVisible.value;
-      };
-      return {
-        toggleMenu,
-      };
-    },
-  };
+export default {
+  components: {
+    Icon,
+  },
+  setup() {
+    const menuVisible = inject < Ref < boolean >> ("xxx");
+    const toggleMenu = () => {
+      menuVisible.value = !menuVisible.value;
+    };
+    return {
+      toggleMenu,
+    };
+  },
+};
 </script>
 
 <style lang="scss" scoped>
-  @import '../var';
+@import "../var";
 
-  .topnav {
-    color: $point-white;
-    z-index: 10;
-    background: $point-bg;
+.topnav {
+  color: $point-white;
+  z-index: 10;
+  background: $point-bg;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 16px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border-bottom: 1px solid $point-color;
+
+  >.logo {
+    max-width: 6em;
+    margin-right: auto;
+  }
+
+  >.showMenu {
+    width: 24px;
+    height: 24px;
+    font-size: 20px;
+    outline: 0;
+    position: absolute;
+    left: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: none;
+  }
+
+  >.menu {
     display: flex;
-    justify-content: center;
+    white-space: nowrap;
+    flex-wrap: nowrap;
     align-items: center;
-    padding: 16px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    border-bottom: 1px solid $point-color;
+    justify-content: center;
 
-    > .logo {
-      max-width: 6em;
-      margin-right: auto;
+    >li {
+      margin: 0 1em;
     }
+  }
 
-    > .showMenu {
-      width: 24px;
-      height: 24px;
-      font-size: 20px;
-      outline: 0;
-      position: absolute;
-      left: 16px;
-      top: 50%;
-      transform: translateY(-50%);
+  @media (max-width: 500px) {
+    .menu {
       display: none;
     }
 
-    > .menu {
-      display: flex;
-      white-space: nowrap;
-      flex-wrap: nowrap;
-      align-items: center;
-      justify-content: center;
-
-      > li {
-        margin: 0 1em;
-      }
+    .showMenu {
+      display: block;
     }
 
-    @media (max-width: 500px) {
-      .menu {
-        display: none;
-      }
-
-      .showMenu {
-        display: block;
-      }
-
-      .logo {
-        margin: 0 auto;
-      }
+    .logo {
+      margin: 0 auto;
     }
   }
+}
 </style>

@@ -7,7 +7,7 @@
       <h1>基于 Vue3 的轻量级UI框架</h1>
       <p class="actions">
         <a href="https://github.com/chaunceym">GitHub</a>
-        <router-link to="/doc">start</router-link>
+        <router-link to="/doc/switch">开始</router-link>
       </p>
     </div>
     <div class="banner-right"></div>
