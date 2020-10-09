@@ -30,3 +30,9 @@
 - onUpdated: 更新后
 - watchEffect: 数据更新后, 挂载前也会执行
 - 在 onMounted 内执行 watchEffect, 实现 onMounted 后拿到数据
+
+## 动态引入模块
+
+- import(路径), 返回 promise
+
+## 事不过三(核心技巧)
