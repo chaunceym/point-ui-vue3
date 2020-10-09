@@ -6,13 +6,13 @@
       <h3>开始使用</h3>
       <ol>
         <li>
-          <router-link to="/doc/introduce">介绍</router-link>
+          <router-link to="/doc/introduce">项目介绍</router-link>
         </li>
         <li>
-          <router-link to="/doc/install">安装</router-link>
+          <router-link to="/doc/install">快速上手</router-link>
         </li>
         <li>
-          <router-link to="/doc/get-started">开始</router-link>
+          <router-link to="/doc/get-started">项目实战</router-link>
         </li>
       </ol>
       <h3>组件列表</h3>
