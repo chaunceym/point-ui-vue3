@@ -6,7 +6,7 @@
       <p>最简单用法</p>
     </div>
     <div class="display">
-      <Switch v-model:checked="checked" />
+      <Switch v-model:checked="checked1" />
       <div class="icon">
         <Icon type="icon-copy" />
         <Icon type="icon-accesskeys" />
@@ -19,10 +19,10 @@
       <p>Switch 失效状态</p>
     </div>
     <div class="display">
-      <Switch v-model:checked="checked" disable />
+      <Switch v-model:checked="checked2" disabled />
       <div class="icon">
-        <Icon type="icon-copy" />
-        <Icon type="icon-accesskeys" />
+        <Icon @click="copyCode" type="icon-copy" />
+        <Icon @click="toggleCode" type="icon-accesskeys" />
       </div>
     </div>
   </div>
@@ -41,9 +41,19 @@ export default {
     Icon,
   },
   setup() {
-    const checked = ref(false)
+    const checked1 = ref(false)
+    const checked2 = ref(false)
+    const copyCode = () => {
+      console.log('copy')
+    }
+    const toggleCode = () => {
+      console.log('toggleCode')
+    }
     return {
-      checked,
+      checked1,
+      checked2,
+      copyCode,
+      toggleCode,
     }
   },
 }

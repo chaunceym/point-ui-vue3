@@ -1,17 +1,22 @@
 <template>
-  <button class="po-switch" :class="{ 'po-checked': checked }">
-    <span @click="toggle" />
-  </button>
+<button class="po-switch" :class="{ ['po-checked']: checked, ['disabled']: disabled }">
+  <span @click="toggle" />
+</button>
 </template>
 
 <script lang="ts">
 export default {
   props: {
     checked: Boolean,
+    disabled: {
+      type: Boolean,
+    },
   },
   setup(props, context) {
     const toggle = () => {
-      context.emit('update:checked', !props.checked)
+      if (!props.disabled) {
+        context.emit('update:checked', !props.checked)
+      }
     }
     return {
       toggle,
@@ -32,7 +37,12 @@ $h2: $h - 4px;
   border-radius: $h/2;
   position: relative;
 
-  > span {
+  &.disabled {
+    cursor: not-allowed;
+    background: #ccc;
+  }
+
+  >span {
     position: absolute;
     top: 2px;
     left: 2px;
@@ -47,7 +57,7 @@ $h2: $h - 4px;
     background: #aa853b;
   }
 
-  &.po-checked > span {
+  &.po-checked>span {
     left: calc(100% - #{$h2} - 2px);
   }
 
