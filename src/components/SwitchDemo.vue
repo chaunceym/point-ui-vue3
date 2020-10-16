@@ -8,10 +8,15 @@
     <div class="display">
       <switch-demo-1 />
       <div class="icon">
-        <Icon type="icon-copy" />
-        <Icon type="icon-accesskeys" />
+        <Icon @click="copyCode1" type="icon-copy" />
+        <Icon @click="toggleCode1" type="icon-accesskeys" />
       </div>
     </div>
+    <hr>
+    <transition>
+      <pre v-text="SwitchDemo1.__sourceCode" v-if="visibleCode1" class="display-code">
+      </pre>
+    </transition>
   </div>
   <div class="switch-demo-1">
     <div class="explain">
@@ -21,10 +26,15 @@
     <div class="display">
       <switch-demo-2 />
       <div class="icon">
-        <Icon @click="copyCode" type="icon-copy" />
-        <Icon @click="toggleCode" type="icon-accesskeys" />
+        <Icon @click="copyCode2" type="icon-copy" />
+        <Icon @click="toggleCode2" type="icon-accesskeys" />
       </div>
     </div>
+    <hr>
+    <transition>
+      <pre v-text="SwitchDemo2.__sourceCode" v-if="visibleCode2" class="display-code">
+      </pre>
+    </transition>
   </div>
 </div>
 </template>
@@ -43,19 +53,29 @@ export default {
     Icon,
   },
   setup() {
-    const checked1 = ref(false)
-    const checked2 = ref(false)
-    const copyCode = () => {
+    const visibleCode1 = ref(false)
+    const visibleCode2 = ref(false)
+    const copyCode1 = () => {
       console.log('copy')
     }
-    const toggleCode = () => {
-      console.log('toggleCode')
+    const copyCode2 = () => {
+      console.log('copy')
+    }
+    const toggleCode1 = () => {
+      visibleCode1.value = !visibleCode1.value
+    }
+    const toggleCode2 = () => {
+      visibleCode2.value = !visibleCode2.value
     }
     return {
-      checked1,
-      checked2,
-      copyCode,
-      toggleCode,
+      visibleCode1,
+      visibleCode2,
+      copyCode1,
+      copyCode2,
+      toggleCode1,
+      toggleCode2,
+      SwitchDemo1,
+      SwitchDemo2
     }
   },
 }
@@ -70,6 +90,11 @@ export default {
   width: 20em;
   border: 1px solid #ccc;
   box-shadow: 0 0 3px fade_out(black, 0.8);
+
+  .display-code {
+    padding: 10px;
+    overflow: auto;
+  }
 
   .display {
     padding: 20px 10px;
