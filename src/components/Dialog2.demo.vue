@@ -1,14 +1,14 @@
-<demo>基础 Dialog</demo>
+<demo>动态生成模态框</demo>
 <template>
-<Button @click="toggle">打开模态框</Button>
-<Dialog v-model:visible="visible">
-  确定是否取消
-</Dialog>
+<Button @click="showDialog">动态打开模态框</Button>
 </template>
 
 <script lang="ts">
 import Dialog from '../lib/Dialog.vue';
 import Button from '../lib/Button.vue';
+import {
+  openDialog
+} from '../lib/openDialog'
 import {
   ref
 } from 'vue';
@@ -18,13 +18,23 @@ export default {
     Dialog
   },
   setup() {
-    const visible = ref(false);
-    const toggle = () => {
-      visible.value = !visible.value;
+    const showDialog = () => {
+      openDialog({
+        title: '动态',
+        content: 'nihc',
+        okText: 'dyes',
+        cancelText: 'dno',
+        ok() {
+          console.log('dyes');
+        },
+        cancel() {
+          console.log('dno');
+        },
+        maskClosable: false
+      });
     };
     return {
-      visible,
-      toggle
+      showDialog
     }
   }
 }

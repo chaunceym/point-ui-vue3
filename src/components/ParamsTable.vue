@@ -1,42 +1,44 @@
 <template>
-  <h1>参数介绍</h1>
-  <table border="1" cellspacing="0" cellpadding="0">
-    <thead>
+<h1>参数介绍</h1>
+<table border="1" cellspacing="0" cellpadding="0">
+  <thead>
     <tr>
       <th>参数名</th>
       <th>类型</th>
       <th>说明</th>
       <th>默认值</th>
     </tr>
-    </thead>
-    <tbody>
-    <tr v-for="param in paramsIntroduce">
+  </thead>
+  <tbody>
+    <tr v-for="param in paramsIntroduce" :key="param">
       <td>{{param.name}}</td>
       <td>{{param.type}}</td>
       <td>{{param.explain}}</td>
       <td>{{param.default}}</td>
     </tr>
-    </tbody>
-  </table>
+  </tbody>
+</table>
 </template>
+
 <script lang="ts">
-  export default {
-    props: {
-      paramsIntroduce: {
-        type: Array,
-        required: true
-      }
-    }
-  };
-</script>
-<style lang="scss" scoped>
-  table {
-    th{
-      padding:10px;
-    }
-    td{
-      padding: 10px;
+export default {
+  props: {
+    paramsIntroduce: {
+      type: Array,
+      required: true
     }
   }
+};
+</script>
 
+<style lang="scss" scoped>
+table {
+  th {
+    padding: 10px;
+  }
+
+  td {
+    padding: 10px;
+  }
+}
 </style>

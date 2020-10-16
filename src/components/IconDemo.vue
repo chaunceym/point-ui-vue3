@@ -15,7 +15,7 @@ import {
 } from 'vue'
 import {
   obj
-} from './demoData.ts'
+} from './demoData'
 
 export default {
   components: {
@@ -25,7 +25,9 @@ export default {
     const types = ref(obj.arr)
     const copyIcon = (value) => {
       const copyInput = document.querySelector('.copyInput')
+      //@ts-ignore
       copyInput.value = `<Icon type="${value}"/>`
+      //@ts-ignore
       copyInput.select()
       document.execCommand('Copy')
       alert(`<Icon type="${value}"/> copyed`)

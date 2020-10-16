@@ -1,170 +1,43 @@
 <template>
-<div>
-</div>
-<div>
-  <h1>动态生成 Dialog</h1>
-  <Button @click="showDialog">showDialog</Button>
-</div>
-<div>
-  <h1>基础 Dialog</h1>
-  <Button @click="toggleSmall">small</Button>
-  <Button @click="toggleNormal">normal</Button>
-  <Button @click="toggleBig">big</Button>
-  <Dialog size="small" v-model:visible="visibleSmall">
-    <h1>Small</h1>
-  </Dialog>
-  <Dialog v-model:visible="visibleNormal">
-    <h1>Normal</h1>
-  </Dialog>
-  <Dialog size="big" v-model:visible="visibleBig">
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-    <h1>Big</h1>
-  </Dialog>
-</div>
-<div>
-  <h1>表单</h1>
-  <Button @click="toggleForm">toggleForm</Button>
-  <Dialog v-model:visible="visibleForm" :form="true"></Dialog>
-</div>
-<div>
-  <h1>dialog信息</h1>
-  <Button @click="toggleInfo">toggleInfo</Button>
-  <Dialog v-model:visible="visibleInfo" message="info">
-    提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
-  </Dialog>
-  <Button @click="toggleSuccess">toggleSuccess</Button>
-  <Dialog v-model:visible="visibleSuccess" message="success">
-    提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
-  </Dialog>
-  <Button @click="toggleWarning">Warning</Button>
-  <Dialog v-model:visible="visibleWarning" message="warning">
-    提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
-  </Dialog>
-  <Button @click="toggleError">toggleError</Button>
-  <Dialog v-model:visible="visibleError" message="error">
-    提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功 提交成功
-  </Dialog>
-</div>
-<params-table :params-introduce="paramsList" />
+<Demo :component="DialogDemo1" describe="最普通的模态框" />
+<Demo :component="DialogDemo2" describe="使用JS函数打开模态框" />
+<Demo :component="DialogDemo3" describe="模态框的大小" />
+<Demo :component="DialogDemo4" describe="模态框里带表单" />
+<Demo :component="DialogDemo5" describe="模态框里带信息图标" />
+<Demo :component="DialogDemo6" describe="模态框可以在选择后在回调做一些事情" />
+<params-table :paramsIntroduce="paramsList" />
 </template>
 
 <script lang="ts">
-import Dialog from '../lib/Dialog.vue';
 import ParamsTable from './ParamsTable.vue';
-import {
-  ref
-} from 'vue';
-import Button from '../lib/Button.vue';
-import {
-  openDialog
-} from '../lib/openDialog';
+import DialogDemo1 from './Dialog1.demo.vue'
+import DialogDemo2 from './Dialog2.demo.vue'
+import DialogDemo3 from './Dialog3.demo.vue'
+import DialogDemo4 from './Dialog4.demo.vue'
+import DialogDemo5 from './Dialog5.demo.vue'
+import DialogDemo6 from './Dialog6.demo.vue'
+import Demo from './Demo.vue';
 import {
   dialogParams
 } from './demoData';
-
+import {
+  ref
+} from 'vue';
 export default {
   components: {
-    Dialog,
-    Button,
+    Demo,
     ParamsTable
   },
   setup() {
-    const visible = ref(false);
-    const visibleSmall = ref(false);
-    const visibleNormal = ref(false);
-    const visibleBig = ref(false);
-    const visibleForm = ref(false);
-    const visibleInfo = ref(false);
-    const visibleSuccess = ref(false);
-    const visibleWarning = ref(false);
-    const visibleError = ref(false);
     const paramsList = ref(dialogParams.arr);
-    const toggle = () => {
-      visible.value = !visible.value;
-    };
-    const toggleSmall = () => {
-      visibleSmall.value = !visibleSmall.value;
-    };
-    const toggleNormal = () => {
-      visibleNormal.value = !visibleNormal.value;
-    };
-    const toggleBig = () => {
-      visibleBig.value = !visibleBig.value;
-    };
-    const toggleForm = () => {
-      visibleForm.value = !visibleForm.value;
-    };
-    const toggleSuccess = () => {
-      visibleSuccess.value = !visibleSuccess.value;
-    };
-    const toggleWarning = () => {
-      visibleWarning.value = !visibleWarning.value;
-    };
-    const toggleError = () => {
-      visibleError.value = !visibleError.value;
-    };
-    const toggleInfo = () => {
-      visibleInfo.value = !visibleInfo.value;
-    };
-    const ok = () => {
-      console.log('ok');
-    };
-    const cancel = () => {
-      console.log('cancel');
-      return false;
-    };
-    const showDialog = () => {
-      openDialog({
-        title: '动态',
-        content: 'nihc',
-        okText: 'dyes',
-        cancelText: 'dno',
-        ok() {
-          console.log('dyes');
-        },
-        cancel() {
-          console.log('dno');
-        },
-        maskClosable: false
-      });
-    };
     return {
-      visible,
-      visibleSmall,
-      toggleSmall,
-      toggle,
-      visibleNormal,
-      toggleNormal,
-      visibleForm,
-      toggleForm,
-      visibleInfo,
-      toggleInfo,
-      visibleSuccess,
-      toggleSuccess,
-      visibleWarning,
-      toggleWarning,
-      visibleError,
-      toggleError,
-      visibleBig,
-      toggleBig,
-      ok,
-      cancel,
-      showDialog,
-      paramsList
+      paramsList,
+      DialogDemo1,
+      DialogDemo2,
+      DialogDemo3,
+      DialogDemo4,
+      DialogDemo5,
+      DialogDemo6,
     };
   }
 };

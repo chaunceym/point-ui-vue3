@@ -13,7 +13,6 @@
       <Icon @click="toggleCode" type="icon-accesskeys" />
     </div>
   </div>
-  <hr>
   <transition name="fade" mode="out-in" appear>
     <pre v-html="html" v-if="visibleCode" class="display-code language-html">
       </pre>
@@ -78,8 +77,7 @@ export default {
 .switch-demo-1 {
   border-radius: 4px;
   margin: 10px;
-  border: 1px solid #ccc;
-  box-shadow: 0 0 3px fade_out(black, 0.8);
+  box-shadow: 0 0 1px fade_out(black, 0.5);
 
   .display-code {
     overflow: auto;
