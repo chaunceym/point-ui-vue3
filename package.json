@@ -2,6 +2,7 @@
   "name": "pointui-vue3",
   "author": "chaunceym",
   "version": "0.0.1",
+  "main": "main.ts",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
