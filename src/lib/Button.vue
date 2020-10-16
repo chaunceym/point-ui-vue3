@@ -54,6 +54,7 @@
     align-items: center;
     justify-content: center;
     white-space: nowrap;
+    position: relative;
     background: #fff;
     color: $color;
     border: 1px solid $border-color;
@@ -101,10 +102,15 @@
     }
 
     &.po-theme-loading {
+      padding-left: 40px;
       &::before {
         content: '';
         display: block;
         height: 14px;
+        top: 50%;
+        left: 16px;
+        margin-top: -8px;
+        position: absolute;
         width: 14px;
         border-width: 2px;
         border-color: $color $color $color transparent;
@@ -291,39 +297,6 @@
       &:active {
         background: lighten(pink, 5%);
         border-color: lighten(pink, 5%);
-      }
-    }
-
-    &.po-color-brown {
-      background: brown;
-      border-color: brown;
-      color: #fff;
-
-      &:active {
-        background: lighten(brown, 5%);
-        border-color: lighten(brown, 5%);
-      }
-    }
-
-    &.po-color-grey {
-      background: grey;
-      border-color: grey;
-      color: #fff;
-
-      &:active {
-        background: lighten(grey, 5%);
-        border-color: lighten(grey, 5%);
-      }
-    }
-
-    &.po-color-black {
-      background: black;
-      border-color: black;
-      color: #fff;
-
-      &:active {
-        background: lighten(black, 5%);
-        border-color: lighten(black, 5%);
       }
     }
   }

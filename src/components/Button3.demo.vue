@@ -10,9 +10,6 @@
 <Button color="violet">紫罗兰色</Button>
 <Button color="purple">紫色</Button>
 <Button color="pink">粉色</Button>
-<Button color="brown">棕色</Button>
-<Button color="grey">灰色</Button>
-<Button color="black">黑色</Button>
 </template>
 
 <script lang="ts">
