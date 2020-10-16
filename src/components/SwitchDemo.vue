@@ -6,7 +6,7 @@
       <p>最简单用法</p>
     </div>
     <div class="display">
-      <switch-demo-1 />
+      <component :is="SwitchDemo1" />
       <div class="icon">
         <Icon @click="copyCode1" type="icon-copy" />
         <Icon @click="toggleCode1" type="icon-accesskeys" />
@@ -24,7 +24,7 @@
       <p>Switch 失效状态</p>
     </div>
     <div class="display">
-      <switch-demo-2 />
+      <component :is="SwitchDemo2" />
       <div class="icon">
         <Icon @click="copyCode2" type="icon-copy" />
         <Icon @click="toggleCode2" type="icon-accesskeys" />
@@ -48,8 +48,6 @@ import {
 } from 'vue'
 export default {
   components: {
-    SwitchDemo1,
-    SwitchDemo2,
     Icon,
   },
   setup() {
