@@ -5,7 +5,9 @@
     <p>{{describe}}</p>
   </div>
   <div class="display">
-    <component :is="component" />
+    <div>
+      <component :is="component" />
+    </div>
     <div class="icon">
       <Icon @click="copyCode" type="icon-copy" />
       <Icon @click="toggleCode" type="icon-accesskeys" />
@@ -13,7 +15,7 @@
   </div>
   <hr>
   <transition name="fade" mode="out-in" appear>
-    <pre v-html="Prism.highlight(component.__sourceCode,Prism.languages.html,'html')" v-if="visibleCode" class="display-code language-html">
+    <pre v-html="html" v-if="visibleCode" class="display-code language-html">
       </pre>
   </transition>
 </div>
@@ -24,6 +26,7 @@ import Icon from '../lib/Icon.vue'
 import 'prismjs'
 import 'prismjs/themes/prism-okaidia.css'
 import {
+  computed,
   ref
 } from 'vue'
 const Prism = (window as any).Prism // 代码高亮
@@ -40,6 +43,9 @@ export default {
   },
   setup(props, context) {
     const visibleCode = ref(false)
+    const html = computed(() => {
+      return Prism.highlight(props.component.__sourceCode, Prism.languages.html, 'html')
+    })
     const copyCode = () => {
       const input = document.createElement('input')
       document.body.appendChild(input)
@@ -59,7 +65,8 @@ export default {
       visibleCode,
       copyCode,
       toggleCode,
-      Prism
+      Prism,
+      html
     }
   }
 }
@@ -71,7 +78,6 @@ export default {
 .switch-demo-1 {
   border-radius: 4px;
   margin: 10px;
-  width: 20em;
   border: 1px solid #ccc;
   box-shadow: 0 0 3px fade_out(black, 0.8);
 
