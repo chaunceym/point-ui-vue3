@@ -1,4 +1,4 @@
-import './lib/point.scss'
+import './lib/css/point.scss'
 import './var.scss'
 import './index.scss'
 import 'github-markdown-css'

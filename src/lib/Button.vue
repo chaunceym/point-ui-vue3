@@ -103,6 +103,7 @@
 
     &.po-theme-loading {
       padding-left: 40px;
+
       &::before {
         content: '';
         display: block;

@@ -12,7 +12,7 @@
   };
 </script>
 <style>
-  .iconfont{
+  .iconfont {
     font-size: 30px;
   }
 </style>

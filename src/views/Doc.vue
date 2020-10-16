@@ -1,139 +1,139 @@
 <template>
-<div class="layout">
-  <TopNav class="nav" />
-  <div class="content">
-    <aside v-if="menuVisible">
-      <h3>开始使用</h3>
-      <ol>
-        <li>
-          <router-link to="/doc/introduce">项目介绍</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/install">安装</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/get-started">快速上手</router-link>
-        </li>
-      </ol>
-      <h3>组件列表</h3>
-      <ol>
-        <li>
-          <router-link to="/doc/switch">Swich 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/button">Button 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/dialog">Dialog 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/tab">Tab 组件</router-link>
-        </li>
-        <li>
-          <router-link to="/doc/icon">Icon 组件</router-link>
-        </li>
-      </ol>
-    </aside>
-    <main>
-      <router-view />
-    </main>
+  <div class="layout">
+    <TopNav class="nav"/>
+    <div class="content">
+      <aside v-if="menuVisible">
+        <h3>开始使用</h3>
+        <ol>
+          <li>
+            <router-link to="/doc/introduce">项目介绍</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/install">安装</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/get-started">快速上手</router-link>
+          </li>
+        </ol>
+        <h3>组件列表</h3>
+        <ol>
+          <li>
+            <router-link to="/doc/switch">Swich 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/button">Button 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/dialog">Dialog 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/tab">Tab 组件</router-link>
+          </li>
+          <li>
+            <router-link to="/doc/icon">Icon 组件</router-link>
+          </li>
+        </ol>
+      </aside>
+      <main>
+        <router-view/>
+      </main>
+    </div>
   </div>
-</div>
 </template>
 
 <script lang="ts">
-import {
-  inject,
-  Ref,
-  ref
-} from 'vue'
-import TopNav from '../components/TopNav.vue'
-import {
-  router
-} from '../router'
+  import {
+    inject,
+    Ref,
+    ref
+  } from 'vue';
+  import TopNav from '../components/TopNav.vue';
+  import {
+    router
+  } from '../router';
 
-export default {
-  components: {
-    TopNav,
-  },
-  setup() {
-    const menuVisible = inject < Ref < boolean >> ('xxx')
-    return {
-      menuVisible,
-    }
-  },
-}
+  export default {
+    components: {
+      TopNav,
+    },
+    setup() {
+      const menuVisible = inject<Ref<boolean>>('xxx');
+      return {
+        menuVisible,
+      };
+    },
+  };
 </script>
 
 <style lang="scss">
-@import '../var';
+  @import '../var';
 
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
+  .layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 
-  >.nav {
-    flex-shrink: 0;
-  }
-
-  >.content {
-    flex-grow: 1;
-    padding-top: 60px;
-    padding-left: 156px;
-
-    @media (max-width: 500px) {
-      padding-left: 0;
+    > .nav {
+      flex-shrink: 0;
     }
-  }
-}
 
-.content {
-  display: flex;
+    > .content {
+      flex-grow: 1;
+      padding-top: 60px;
+      padding-left: 156px;
 
-  >aside {
-    flex-shrink: 0;
-  }
-
-  >main {
-    overflow: auto;
-    flex-grow: 1;
-    padding: 16px;
-    background: $point-white;
-  }
-}
-
-aside {
-  color: $point-color;
-  background: $point-bg;
-  width: 150px;
-  position: fixed;
-  top: 0;
-  left: 0;
-  padding: 70px 8px 8px;
-  height: 100%;
-
-  >h3 {
-    margin: 10px 8px;
-  }
-
-  >ol {
-    >li {
-      a {
-        display: inline-flex;
-        width: 100%;
-        height: 100%;
-        padding: 4px 8px;
-        transition: all 250ms;
+      @media (max-width: 500px) {
+        padding-left: 0;
       }
     }
   }
 
-  .router-link-active {
-    color: $point-bg;
-    background: $point-color;
-    border-radius: 4px;
-    font-weight: 700;
+  .content {
+    display: flex;
+
+    > aside {
+      flex-shrink: 0;
+    }
+
+    > main {
+      overflow: auto;
+      flex-grow: 1;
+      padding: 16px;
+      background: $point-white;
+    }
   }
-}
+
+  aside {
+    color: $point-color;
+    background: $point-bg;
+    width: 150px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding: 70px 8px 8px;
+    height: 100%;
+
+    > h3 {
+      margin: 10px 8px;
+    }
+
+    > ol {
+      > li {
+        a {
+          display: inline-flex;
+          width: 100%;
+          height: 100%;
+          padding: 4px 8px;
+          transition: all 250ms;
+        }
+      }
+    }
+
+    .router-link-active {
+      color: $point-bg;
+      background: $point-color;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+  }
 </style>

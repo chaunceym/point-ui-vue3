@@ -379,4 +379,20 @@ export const tabParams = {
       default: '无'
     },
   ]
-}
+};
+export const switchParams = {
+  arr: [
+    {
+      name: 'checked',
+      type: 'Boolean',
+      explain: '是否开关',
+      default: 'false'
+    },
+    {
+      name: 'disable',
+      type: 'Boolean',
+      explain: '是否禁用',
+      default: '无'
+    },
+  ]
+};
