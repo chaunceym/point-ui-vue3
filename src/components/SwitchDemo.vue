@@ -6,7 +6,7 @@
       <p>最简单用法</p>
     </div>
     <div class="display">
-      <Switch v-model:checked="checked1" />
+      <switch-demo-1 />
       <div class="icon">
         <Icon type="icon-copy" />
         <Icon type="icon-accesskeys" />
@@ -19,7 +19,7 @@
       <p>Switch 失效状态</p>
     </div>
     <div class="display">
-      <Switch v-model:checked="checked2" disabled />
+      <switch-demo-2 />
       <div class="icon">
         <Icon @click="copyCode" type="icon-copy" />
         <Icon @click="toggleCode" type="icon-accesskeys" />
@@ -30,14 +30,16 @@
 </template>
 
 <script lang="ts">
-import Switch from '../lib/Switch.vue'
+import SwitchDemo1 from './Switch1.demo.vue'
+import SwitchDemo2 from './Switch2.demo.vue'
 import Icon from '../lib/Icon.vue'
 import {
   ref
 } from 'vue'
 export default {
   components: {
-    Switch,
+    SwitchDemo1,
+    SwitchDemo2,
     Icon,
   },
   setup() {
@@ -60,6 +62,8 @@ export default {
 </script>
 
 <style lang="scss">
+@import '../var';
+
 .switch-demo-1 {
   border-radius: 4px;
   margin: 10px;
@@ -78,6 +82,10 @@ export default {
       display: flex;
       align-items: center;
       justify-content: space-between;
+    }
+
+    .icon i:hover {
+      color: #93834D;
     }
 
     .iconfont {
