@@ -1,29 +1,29 @@
 <template>
-<div>I am Tab</div>
-<Tabs v-model:selected="selectedValue">
-  <Tab title="title1">Tab1</Tab>
-  <Tab title="title2">Tab2</Tab>
-  <Tab title="title3dddd">Tab33333</Tab>
-</Tabs>
+<Demo :component="TabDemo1" describe="最基本用法" />
+<params-table :paramsIntroduce="paramsList" />
 </template>
 
 <script lang="ts">
-import Tabs from "../lib/Tabs.vue";
-import Tab from "../lib/Tab.vue";
+import TabDemo1 from './Tab1.demo.vue'
+import Demo from './Demo.vue'
+import ParamsTable from './ParamsTable.vue'
+import {
+  tabParams
+} from './demoData';
 import {
   ref
-} from "vue";
-
+} from 'vue';
 export default {
   components: {
-    Tabs,
-    Tab,
+    Demo,
+    ParamsTable
   },
   setup() {
-    const selectedValue = ref("title1");
+    const paramsList = ref(tabParams.arr)
     return {
-      selectedValue,
-    };
-  },
+      TabDemo1,
+      paramsList
+    }
+  }
 };
 </script>

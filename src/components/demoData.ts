@@ -363,3 +363,20 @@ export const buttonParams = {
     },
   ]
 };
+
+export const tabParams = {
+  arr: [
+    {
+      name: 'selected',
+      type: 'String',
+      explain: '选中选中个, tabs上的参数, 与tab上的title对应, 必填',
+      default: '无'
+    },
+    {
+      name: 'title',
+      type: 'String',
+      explain: 'tab标题, tab上的属性, 必填',
+      default: '无'
+    },
+  ]
+}

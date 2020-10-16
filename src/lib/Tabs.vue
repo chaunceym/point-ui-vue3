@@ -114,7 +114,7 @@ $border-color: #d9d9d9;
   }
 
   &-content {
-    padding: 8px 0;
+    padding: 8px 4px;
 
     &-item {
       display: none;
