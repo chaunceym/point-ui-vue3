@@ -23,7 +23,7 @@
 <script lang="ts">
   import Icon from '../lib/Icon.vue';
   import 'prismjs';
-  import 'prismjs/themes/prism-okaidia.css';
+  import 'prismjs/themes/prism.css';
   import {
     computed,
     ref

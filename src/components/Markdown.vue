@@ -1,5 +1,5 @@
 <template>
-  <article class="markdown-body" v-html="content"></article>
+  <article class="markdown-body" v-html="content"/>
 </template>
 
 <script lang="ts">
@@ -27,4 +27,9 @@
 </script>
 
 <style lang="scss" scoped>
+  .markdown-body {
+    >pre {
+      background: #000 !important;
+    }
+  }
 </style>
