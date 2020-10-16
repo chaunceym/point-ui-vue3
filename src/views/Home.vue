@@ -33,6 +33,8 @@ export default {
   display: flex;
   background: #1b1b1d;
   height: 100vh;
+  position: relative;
+  overflow: hidden;
 
   &-left {
     color: $point-color;
@@ -74,7 +76,14 @@ export default {
   }
 
   &-right {
-    width: 50%;
+    width: 800px;
+    height: 800px;
+    background: transparent;
+    border: 1px solid $point-color;
+    position: absolute;
+    bottom: -400px;
+    right: -400px;
+    border-radius: 50%;
   }
 }
 </style>

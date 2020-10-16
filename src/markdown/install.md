@@ -12,4 +12,3 @@ npm install point-ui-vue3
 yarn add point-ui-vue3
 ```
 
-下一节：[开始使用](#/doc/get-started)

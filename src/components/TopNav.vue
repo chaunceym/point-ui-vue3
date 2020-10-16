@@ -1,6 +1,6 @@
 <template>
 <div class="topnav">
-  <div class="logo">Point UI</div>
+  <div class="logo"><router-link to="/">Point UI</router-link></div>
   <Icon class="showMenu" @click="toggleMenu" type="icon-menu" />
   <ul class="menu">
     <li>
@@ -40,7 +40,7 @@ export default {
 @import "../var";
 
 .topnav {
-  color: $point-white;
+  color: $point-color;
   z-index: 10;
   background: $point-bg;
   display: flex;

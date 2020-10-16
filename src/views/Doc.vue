@@ -18,19 +18,19 @@
         <h3>组件列表</h3>
         <ol>
           <li>
-            <router-link to="/doc/switch">Swich 组件</router-link>
+            <router-link to="/doc/switch">Swich 开关</router-link>
           </li>
           <li>
-            <router-link to="/doc/button">Button 组件</router-link>
+            <router-link to="/doc/button">Button 按钮</router-link>
           </li>
           <li>
-            <router-link to="/doc/dialog">Dialog 组件</router-link>
+            <router-link to="/doc/tab">Tab 切换</router-link>
           </li>
           <li>
-            <router-link to="/doc/tab">Tab 组件</router-link>
+            <router-link to="/doc/dialog">Dialog 模态框</router-link>
           </li>
           <li>
-            <router-link to="/doc/icon">Icon 组件</router-link>
+            <router-link to="/doc/icon">Icon 图标</router-link>
           </li>
         </ol>
       </aside>
