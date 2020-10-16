@@ -2,4 +2,9 @@
 
 Point UI 更新升级版本, 将拥有更多的 UI 组件和功能
 
-正在开发中...
+- Vue3 
+- TypeScript
+- Scss 
+
+ [官网地址](https://chaunceym.github.io/point-ui-vue3/index.html)
+

@@ -13,10 +13,8 @@
         <Icon @click="toggleCode" type="icon-accesskeys"/>
       </div>
     </div>
-    <transition name="fade" mode="out-in" appear>
-    <pre v-html="html" v-if="visibleCode" class="display-code language-html">
-      </pre>
-    </transition>
+    <pre v-html="html" v-if="visibleCode"
+         class="language-html"/>
   </div>
 </template>
 
@@ -79,10 +77,6 @@
     border-radius: 4px;
     margin: 10px;
     box-shadow: 0 0 1px fade_out(black, 0.5);
-
-    .display-code {
-      overflow: auto;
-    }
 
     .display {
       padding: 20px 10px;
