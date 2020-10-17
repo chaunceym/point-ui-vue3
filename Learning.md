@@ -38,3 +38,13 @@
 ## 事不过三(核心技巧)
 
 - 提升技巧的关键点
+
+## 遇到的项目问题
+
+1. Dialog 的潜在 bug, 会被遮挡, 使用 teleport 组件让 Dialog 组件放在 body 中, 避免覆盖
+2. 优化技巧, Onmounted, Onupdated, 联合成 watchEffect 钩子函数, 不过 watchEffect 会在 create 之前也会执行,
+所以根据官网上把 watchEffect 放在 Onmounted 里解决
+3. 制作 openDialog 一键生成组件的时候, 用到了 createApp 里的 render 函数返回 h 函数去创建一个 Vue 组件实例挂载到创建的 
+div 上, 属性和插槽都配置在函数参数对象上
+4. 怎样显示源代码, 就是把组件的源码都获取到, 利用 Vite 的 Custom Block, 获取到自定义 demo 的文件路径, 然后利用 node 的读文件
+去获得内容, 挂载到组件之上
