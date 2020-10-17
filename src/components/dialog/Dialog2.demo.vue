@@ -6,12 +6,7 @@
 <script lang="ts">
   import Dialog from '../../lib/Dialog.vue';
   import Button from '../../lib/Button.vue';
-  import {
-    openDialog
-  } from '../../lib/openDialog';
-  import {
-    ref
-  } from 'vue';
+  import {openDialog} from '../../lib/openDialog';
 
   export default {
     components: {

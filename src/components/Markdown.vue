@@ -3,9 +3,7 @@
 </template>
 
 <script lang="ts">
-  import {
-    ref
-  } from 'vue';
+  import {ref} from 'vue';
 
   export default {
     props: {
@@ -26,10 +24,3 @@
   };
 </script>
 
-<style lang="scss" scoped>
-  .markdown-body {
-    >pre {
-      background: #000 !important;
-    }
-  }
-</style>

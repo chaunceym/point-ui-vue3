@@ -18,12 +18,8 @@
   import DialogDemo5 from './Dialog5.demo.vue';
   import DialogDemo6 from './Dialog6.demo.vue';
   import Demo from '../Demo.vue';
-  import {
-    dialogParams
-  } from '../demoData';
-  import {
-    ref
-  } from 'vue';
+  import {dialogParams} from '../demoData';
+  import {ref} from 'vue';
 
   export default {
     components: {

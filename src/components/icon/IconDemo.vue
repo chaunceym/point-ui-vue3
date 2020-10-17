@@ -11,12 +11,8 @@
 
 <script lang="ts">
   import Icon from '../../lib/Icon.vue';
-  import {
-    ref
-  } from 'vue';
-  import {
-    obj
-  } from '../demoData';
+  import {ref} from 'vue';
+  import {obj} from '../demoData';
 
   export default {
     components: {

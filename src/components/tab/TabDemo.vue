@@ -8,12 +8,8 @@
   import TabDemo1 from './Tab1.demo.vue';
   import Demo from '../Demo.vue';
   import ParamsTable from '../ParamsTable.vue';
-  import {
-    tabParams
-  } from '../demoData';
-  import {
-    ref
-  } from 'vue';
+  import {tabParams} from '../demoData';
+  import {ref} from 'vue';
 
   export default {
     components: {
