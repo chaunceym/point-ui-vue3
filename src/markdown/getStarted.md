@@ -19,7 +19,7 @@ import { Button, Tabs, Switch, Dialog } from 'point-ui-vue3'
   <div><Button></Button></div>
 </template>
 <script>
-import { Button, Tabs, Switch, Dialog } from 'king-ui-vue3'
+import { Button, Tabs, Switch, Dialog } from 'point-ui-vue3'
 export default {
   components: { Button },
 }

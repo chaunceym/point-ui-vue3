@@ -11,8 +11,8 @@
     }
   };
 </script>
-<style>
+<style lang="scss">
   .iconfont {
     font-size: 30px;
   }
-</style>
+</style >
