@@ -137,6 +137,10 @@
   $radius: 4px;
   $border-color: #d9d9d9;
 
+  @media (max-width: 500px) {
+
+  }
+
   .po-dialog {
     background: transparent;
     border: 1px solid #fff;

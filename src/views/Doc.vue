@@ -3,7 +3,7 @@
     <TopNav class="nav"/>
     <div class="content">
       <aside v-if="menuVisible">
-        <h3>开始使用</h3>
+        <h3 class="doc-title">开始使用</h3>
         <ol>
           <li>
             <router-link to="/doc/introduce">项目介绍</router-link>
@@ -15,7 +15,7 @@
             <router-link to="/doc/get-started">快速上手</router-link>
           </li>
         </ol>
-        <h3>组件列表</h3>
+        <h3 class="doc-title">组件列表</h3>
         <ol>
           <li>
             <router-link to="/doc/switch">Swich 开关</router-link>
@@ -82,6 +82,11 @@
       padding-top: 60px;
       padding-left: 156px;
 
+      .doc-title{
+        color: #BBA179;
+        padding: 4px 0;
+      }
+
       @media (max-width: 500px) {
         padding-left: 0;
       }
@@ -93,6 +98,7 @@
 
     > aside {
       flex-shrink: 0;
+
     }
 
     > main {
@@ -112,6 +118,7 @@
     left: 0;
     padding: 70px 8px 8px;
     height: 100%;
+    z-index: 10;
 
     > h3 {
       margin: 10px 8px;
