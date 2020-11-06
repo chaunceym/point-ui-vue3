@@ -2,38 +2,40 @@
   <div class="layout">
     <TopNav class="nav"/>
     <div class="content">
-      <aside v-if="menuVisible">
-        <h3 class="doc-title">开始使用</h3>
-        <ol>
-          <li>
-            <router-link to="/doc/introduce">项目介绍</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/install">安装</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/get-started">快速上手</router-link>
-          </li>
-        </ol>
-        <h3 class="doc-title">组件列表</h3>
-        <ol>
-          <li>
-            <router-link to="/doc/switch">Swich 开关</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/button">Button 按钮</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/tab">Tab 切换</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/dialog">Dialog 模态框</router-link>
-          </li>
-          <li>
-            <router-link to="/doc/icon">Icon 图标</router-link>
-          </li>
-        </ol>
-      </aside>
+      <transition name="fade">
+        <aside v-if="menuVisible">
+          <h3 class="doc-title">开始使用</h3>
+          <ol>
+            <li>
+              <router-link to="/doc/introduce">项目介绍</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/install">安装</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/get-started">快速上手</router-link>
+            </li>
+          </ol>
+          <h3 class="doc-title">组件列表</h3>
+          <ol>
+            <li>
+              <router-link to="/doc/switch">Swich 开关</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/button">Button 按钮</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/tab">Tab 切换</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/dialog">Dialog 模态框</router-link>
+            </li>
+            <li>
+              <router-link to="/doc/icon">Icon 图标</router-link>
+            </li>
+          </ol>
+        </aside>
+      </transition>
       <main>
         <router-view/>
       </main>
@@ -68,6 +70,23 @@
 <style lang="scss">
   @import '../var';
 
+  .fade-enter-active { //类名：隐藏到显示过程所需要的时间
+    animation: bounce-in 250ms;
+  }
+
+  .fade-leave-active { //类名：显示到隐藏过程所需要的时间
+    animation: bounce-in 250ms reverse; //reverse表示和隐藏到显示动画相反
+  }
+
+  @keyframes bounce-in {
+    0% {
+      left: -150px;
+    }
+    100% {
+      left: 0;
+    }
+  }
+
   .layout {
     display: flex;
     flex-direction: column;
@@ -82,7 +101,7 @@
       padding-top: 60px;
       padding-left: 156px;
 
-      .doc-title{
+      .doc-title {
         color: #BBA179;
         padding: 4px 0;
       }
