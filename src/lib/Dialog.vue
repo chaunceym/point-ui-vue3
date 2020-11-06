@@ -136,11 +136,6 @@
 <style lang="scss">
   $radius: 4px;
   $border-color: #d9d9d9;
-
-  @media (max-width: 500px) {
-
-  }
-
   .po-dialog {
     background: transparent;
     border: 1px solid #fff;
@@ -159,6 +154,21 @@
 
     &.po-size-big {
       min-width: 55em;
+    }
+
+    @media (max-width: 500px) {
+      min-width: 20em;
+      max-width: 90%;
+      &.po-size-small {
+        min-width: 15em;
+        max-width: 90%;
+      }
+
+      &.po-size-big {
+        min-width: 20em;
+        max-width: 90%;
+        height: 20em;
+      }
     }
 
     &-overlay {
