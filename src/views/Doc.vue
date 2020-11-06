@@ -118,7 +118,7 @@
     left: 0;
     padding: 70px 8px 8px;
     height: 100%;
-    z-index: 10;
+    z-index: 8;
 
     > h3 {
       margin: 10px 8px;
