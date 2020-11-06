@@ -3,10 +3,9 @@
   <ul class="po-icon-container">
     <li @click="copyIcon(value)" v-for="value in types" :key="value">
       <Icon :type="value"/>
-      <span>{{ value }}</span>
+      <span class="icon-value">{{ value }}</span>
     </li>
   </ul>
-  <input type="text" class="copyInput"/>
 </template>
 
 <script lang="ts">
@@ -21,12 +20,12 @@
     setup() {
       const types = ref(obj.arr);
       const copyIcon = (value) => {
-        const copyInput = document.querySelector('.copyInput');
-        //@ts-ignore
-        copyInput.value = `<Icon type="${value}"/>`;
-        //@ts-ignore
-        copyInput.select();
+        const input = document.createElement('input');
+        document.body.appendChild(input);
+        input.value = `<Icon type="${value}"/>`;
+        input.select();
         document.execCommand('Copy');
+        document.body.removeChild(input);
         alert(`<Icon type="${value}"/> copyed`);
       };
 
@@ -39,10 +38,6 @@
 </script>
 
 <style lang="scss" scoped>
-  .copyInput {
-    opacity: 0;
-  }
-
   .po-icon-container {
     display: flex;
     flex-wrap: wrap;
@@ -55,6 +50,7 @@
       align-items: center;
       padding: 20px 32px;
       transition: all 500ms;
+      flex: 1;
 
       > span {
         display: block;
@@ -77,6 +73,15 @@
 
     > li:hover .iconfont {
       transform: scale(1.2);
+    }
+
+    @media (max-width: 500px) {
+      li {
+        width: 40px;
+      }
+      .icon-value{
+        display: none;
+      }
     }
   }
 </style>
